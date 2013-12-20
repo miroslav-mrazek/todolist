@@ -9,7 +9,8 @@
 
 namespace Todolist;
 
-use Nette\Application\UI\Presenter;
+use Nette\Application\UI\Presenter,
+	Nette\Security\IAuthorizator;
 
 
 /**
@@ -17,6 +18,13 @@ use Nette\Application\UI\Presenter;
  */
 abstract class BasePresenter extends Presenter
 {
+	
+	/**
+	 * @var Nette\Security\IAuthorizator
+	 * @inject 
+	 */
+	public $authorizator;
+	
 
 	/**
 	 * Rutiny prováděné při startu aplikace

@@ -41,8 +41,17 @@ final class CatalogPresenter extends SecuredPresenter
 	 */
 	public function actionList($id = NULL)
 	{
-		$this->template->catalogs = $this->userEntity->catalogs;
-		$this->template->catalogId = $id;
+		if(!$this->user->isAllowed('catalog', 'read'))
+		{
+			$this->flashMessage("nemate prava");
+			$this->template->catalogs = [];
+			$this->template->catalogId = NULL;
+		}
+		else
+		{
+			$this->template->catalogs = $this->userEntity->catalogs;
+			$this->template->catalogId = $id;
+		}
 	}
 
 

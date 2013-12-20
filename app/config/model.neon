@@ -9,6 +9,7 @@ services:
 	- LeanMapper\Connection(%database%)
 	- Todolist\Model\Mapper
 	- Todolist\Model\Authenticator
+	- Todolist\Model\Authorizator
 	- Todolist\Model\UserRepository
 	- Todolist\Model\TaskRepository
 	- Todolist\Model\TaskService

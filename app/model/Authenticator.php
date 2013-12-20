@@ -52,7 +52,7 @@ class Authenticator implements IAuthenticator
 //			throw new AuthenticationException('The password is incorrect.', self::INVALID_CREDENTIAL);
 //		}
 
-		return new Identity($user->id, array(), array('name' => $user->name));
+		return new Identity($user->id, $user->role, array('name' => $user->name));
 	}
 
 

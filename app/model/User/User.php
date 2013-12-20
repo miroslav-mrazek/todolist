@@ -19,6 +19,7 @@ namespace Todolist\Model;
  * @property string    $username
  * @property string    $password
  * @property string    $name
+ * @property string    $role
  */
 class User extends Entity
 {
