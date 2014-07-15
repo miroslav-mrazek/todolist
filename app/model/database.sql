@@ -1,11 +1,4 @@
-##
-# TODOLIST
-# Školní projekt k seznámení s Nette a ORM
-# 
-# @author MMR <miroslav.mrazek@gmail.com>
-#
-
--- Adminer 3.6.2 MySQL dump
+-- Adminer 4.0.3 MySQL dump
 
 SET NAMES utf8;
 SET foreign_key_checks = 0;
@@ -42,11 +35,12 @@ CREATE TABLE `user` (
   `username` varchar(50) NOT NULL,
   `password` char(60) NOT NULL,
   `name` varchar(100) NOT NULL,
+  `role` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `user` (`id`, `username`, `password`, `name`) VALUES
-(1,	'admin',	'$2a$07$tf30578tqb8c8l8cqds8dumnHzjliPwfGKHqWtpzA.TkZQF/G9OWi',	'Administrator');
+INSERT INTO `user` (`id`, `username`, `password`, `name`, `role`) VALUES
+(1,	'admin',	'$2a$07$tf30578tqb8c8l8cqds8dumnHzjliPwfGKHqWtpzA.TkZQF/G9OWi',	'Administrator',	'admin');
 
--- 2013-09-27 09:23:07
+-- 2014-07-15 05:11:29
