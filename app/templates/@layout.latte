@@ -17,16 +17,10 @@
 
 		<title>ÚKOLNÍČEK - {block title|striptags}{/block}</title>
 
-		<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/bootstrap.css">
-		<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css">
-		<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
-		<link rel="shortcut icon" href="{$basePath}/favicon.ico">
 		{block head}{/block}
 	</head>
 
 	<body>
-		<script> document.body.className += ' js'</script>
-
 		<div class="container">
 			<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
 			<div class="navbar navbar-inverse">
@@ -51,11 +45,11 @@
 		</div>
 
 		{block scripts}
-		<script src="{$basePath}/js/jquery.js"></script>
-		<script src="{$basePath}/js/bootstrap.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="{$basePath}/js/netteForms.js"></script>
 		<script src="{$basePath}/js/nette.ajax.js"></script>
-		<script src="{$basePath}/js/main.js"></script>
+		<script src="{$basePath}/js/fidRemove.ajax.js"></script>
+		<script src="{$basePath}/js/init.js"></script>
 		{/block}
 	</body>
 </html>
