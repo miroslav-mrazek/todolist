@@ -1,26 +1,17 @@
 <?php
 
-/**
- * TODOLIST
- * Školní projekt k seznámení s Nette a ORM
- * 
- * @author MMR <miroslav.mrazek@gmail.com>
- */
-
 namespace Todolist;
 
-use Nette\Application\Routers\RouteList,
+use Nette\Application\IRouter,
+	Nette\Application\Routers\RouteList,
 	Nette\Application\Routers\Route;
 
 
-/**
- * Router factory.
- */
 class RouterFactory
 {
 
 	/**
-	 * @return \Nette\Application\IRouter
+	 * @return IRouter
 	 */
 	public function createRouter()
 	{

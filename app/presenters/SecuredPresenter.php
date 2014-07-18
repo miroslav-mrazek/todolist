@@ -1,18 +1,6 @@
 <?php
 
-/**
- * TODOLIST
- * Školní projekt k seznámení s Nette a ORM
- * 
- * @author MMR <miroslav.mrazek@gmail.com>
- */
-
 namespace Todolist;
-
-use Todolist\Model\User,
-	Todolist\Model\UserRepository,
-	Todolist\Components\LogoutControl,
-	Todolist\Components\ILogoutControlFactory;
 
 
 /**
@@ -28,7 +16,7 @@ abstract class SecuredPresenter extends BasePresenter
 	private $users;
 
 	/**
-	 * @var \Todolist\Components\ILogoutControlFactory
+	 * @var ILogoutControlFactory
 	 * @inject
 	 */
 	public $logoutControlFactory;
@@ -48,8 +36,6 @@ abstract class SecuredPresenter extends BasePresenter
 	
 	
 	/**
-	 * Vytvoří komponentu logoutControl
-	 * 
 	 * @return LogoutControl
 	 */
 	public function createComponentLogoutControl()
@@ -59,8 +45,6 @@ abstract class SecuredPresenter extends BasePresenter
 	
 	
 	/**
-	 * Injector
-	 * 
 	 * @param UserRepository $users
 	 */
 	public function injectUserRepository(UserRepository $users)

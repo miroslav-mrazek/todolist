@@ -1,34 +1,19 @@
 <?php
 
-/**
- * TODOLIST
- * Školní projekt k seznámení s Nette a ORM
- * 
- * @author MMR <miroslav.mrazek@gmail.com>
- */
-
 namespace Todolist;
 
-use Todolist\Components\CatalogControl,
-	Todolist\Components\ICatalogControlFactory,
-	Todolist\Components\CatalogForm,
-	Todolist\Components\ICatalogFormFactory;
 
-
-/**
- * Catalog presenter.
- */
 final class CatalogPresenter extends SecuredPresenter
 {
 	
 	/**
-	 * @var \Todolist\Components\ICatalogControlFactory
+	 * @var ICatalogControlFactory
 	 * @inject
 	 */
 	public $catalogControlFactory;
 	
 	/**
-	 * @var \Todolist\Components\ICatalogFormFactory
+	 * @var ICatalogFormFactory
 	 * @inject
 	 */
 	public $catalogFormFactory;
@@ -56,8 +41,6 @@ final class CatalogPresenter extends SecuredPresenter
 
 
 	/**
-	 * Vytvoří komponentu catalogControl
-	 * 
 	 * @return CatalogControl
 	 */
 	public function createComponentCatalogControl()
@@ -67,8 +50,6 @@ final class CatalogPresenter extends SecuredPresenter
 
 
 	/**
-	 * Vytvoří komponentu newCatalogForm
-	 * 
 	 * @return CatalogForm
 	 */
 	public function createComponentNewCatalogForm()

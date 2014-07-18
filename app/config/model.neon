@@ -1,17 +1,10 @@
-##
-# TODOLIST
-# Školní projekt k seznámení s Nette a ORM
-# 
-# @author MMR <miroslav.mrazek@gmail.com>
-#
-
 services:
 	- LeanMapper\Connection(%database%)
 	- LeanMapper\DefaultEntityFactory
-	- Todolist\Model\Mapper
-	- Todolist\Model\Authenticator
-	- Todolist\Model\Authorizator
-	- Todolist\Model\UserRepository
-	- Todolist\Model\TaskRepository
-	- Todolist\Model\TaskService
-	- Todolist\Model\CatalogRepository
+	- Todolist\Mapper
+	- Todolist\Authenticator
+	- Todolist\Authorizator
+	- Todolist\UserRepository
+	- Todolist\TaskRepository
+	- Todolist\TaskService
+	- Todolist\CatalogRepository

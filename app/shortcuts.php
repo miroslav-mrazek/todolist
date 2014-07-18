@@ -1,10 +1,5 @@
 <?php
 
-/**
- * Zkratky pro často používané funkce
- */
-
-use Tracy\Debugger;
 
 if (!function_exists('barDump')) {
 	/**
@@ -20,7 +15,7 @@ if (!function_exists('barDump')) {
 	   $line = $backtrace[0]['line'];
 	   $title .= (empty($title) ? '' : ' – ');
 
-	   return Debugger::barDump($var, $title . $source . ' (' . $line . ')');
+	   return Tracy\Debugger::barDump($var, $title . $source . ' (' . $line . ')');
    }
 
 }
