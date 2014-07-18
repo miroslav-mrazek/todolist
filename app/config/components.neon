@@ -5,7 +5,7 @@
 # @author MMR <miroslav.mrazek@gmail.com>
 #
 
-factories:
+services:
 	- Todolist\Components\ILoginFormFactory
 	- Todolist\Components\ILogoutControlFactory
 	- Todolist\Components\ICatalogFormFactory

@@ -20,7 +20,7 @@ abstract class BasePresenter extends Presenter
 {
 	
 	/**
-	 * @var Nette\Security\IAuthorizator
+	 * @var IAuthorizator
 	 * @inject 
 	 */
 	public $authorizator;

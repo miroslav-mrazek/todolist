@@ -7,6 +7,7 @@
 
 services:
 	- LeanMapper\Connection(%database%)
+	- LeanMapper\DefaultEntityFactory
 	- Todolist\Model\Mapper
 	- Todolist\Model\Authenticator
 	- Todolist\Model\Authorizator

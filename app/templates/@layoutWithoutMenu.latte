@@ -15,13 +15,13 @@
 		<meta name="description" content="">
 		<meta name="robots" content="{$robots}" n:ifset="$robots">
 
-		<title>ÚKOLNÍČEK - {#title|striptags}{/#}</title>
+		<title>ÚKOLNÍČEK - {block title|striptags}{/block}</title>
 
 		<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/bootstrap.css">
 		<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css">
 		<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
 		<link rel="shortcut icon" href="{$basePath}/favicon.ico">
-		{#head}{/#}
+		{block head}{/block}
 	</head>
 
 	<body>
@@ -32,11 +32,11 @@
 			{include #content}
 		</div>
 
-		{#scripts}
+		{block scripts}
 		<script src="{$basePath}/js/jquery.js"></script>
 		<script src="{$basePath}/js/bootstrap.js"></script>
 		<script src="{$basePath}/js/netteForms.js"></script>
 		<script src="{$basePath}/js/main.js"></script>
-		{/#}
+		{/block}
 	</body>
 </html>

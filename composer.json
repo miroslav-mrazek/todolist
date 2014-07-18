@@ -1,0 +1,21 @@
+{
+	"name": "miroslav-mrazek/todolist",
+	"description": "Správa úkolů.",
+	"type": "project",
+	"license": ["BSD-3-Clause"],
+	"authors": [
+		{
+			"name": "Miroslav Mrázek - Šaman",
+			"homepage": "http://miroslav-mrazek.cz"
+		}
+	],
+	"require": {
+		"php": ">= 5.5",
+		"nette/nette": "~2.2.0",
+		"tharos/leanmapper": "~2.2.0"
+	},
+	"require-dev": {
+		"nette/tester": "~1.0"
+	},
+	"minimum-stability": "stable"
+}

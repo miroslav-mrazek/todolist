@@ -25,6 +25,8 @@ use LeanMapper\DefaultMapper,
  */
 class Mapper extends DefaultMapper
 {
+	
+	protected $defaultEntityNamespace = 'Todolist\Model';
 
 	/**
 	 * PK format: id
