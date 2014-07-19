@@ -1,59 +1,51 @@
-{**
- * @param string   $basePath
- * @param array    $flashes
- * @param string   $robots
- *}
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="description" content="">
-		<meta name="robots" content="{$robots}" n:ifset="$robots">
-		
-		<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/bootstrap.spacelab.min.css">
-		<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/style.css">
+{layout @baseLayout.latte}
 
-		<title>ÚKOLNÍČEK - {block title|striptags /}</title>
-
-		{block head /}
-	</head>
-
-	<body>
-		<div class="container">
-			<div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} alert-dismissible" role="alert">
-				<button type="button" class="close" data-dismiss="alert">
-					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-				</button>
-				{$flash->message}
-			</div>
+{block outerContent}
+	<div class="row clearfix">
+		<div class="col-md-12 column">
 			<div class="navbar navbar-inverse">
-				<div class="navbar-inner">
-					<ul class="nav pull-left">
-						<li n:if="$user->isLoggedIn()" class="active"><a n:href="Catalog:list">Seznamy</a></li>
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" n:href="Catalog:list">Úkolníček</a>
+				</div>
+
+				<div class="navbar-collapse collapse navbar-inverse-collapse">
+					<ul class="nav navbar-nav">
+						<li n:class="$presenter->isLinkCurrent('Catalog:list') ? active"><a n:href="Catalog:list">Seznamy</a></li>
 					</ul>
-					<ul class="nav pull-right">
+
+					<ul class="nav navbar-nav navbar-right">
 						{if $user->isLoggedIn()}
 							<li>{control logoutControl}</li>
-							{else}
+						{else}
 							<li class="active"><a n:href="Application:login">Přihlášení</a></li>
-							{/if}
+						{/if}
 					</ul>
 				</div>
 			</div>
-
-			{snippet content}
-				{include content}
-			{/snippet}
-
 		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div n:snippet="flashes">
+				<div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} alert-dismissible" role="alert">
+					<button type="button" class="close" data-dismiss="alert">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					{$flash->message}
+				</div>
+			</div>
+				
+			<div n:snippet="content">
+				{include content}
+			</div>
+		</div>
+	</div>
+				
 
-		{block scripts}
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-			<script src="{$basePath}/js/bootstrap.min.js"></script>
-			<script src="{$basePath}/js/netteForms.js"></script>
-			<script src="{$basePath}/js/nette.ajax.js"></script>
-			<script src="{$basePath}/js/fidRemove.ajax.js"></script>
-			<script src="{$basePath}/js/init.js"></script>
-		{/block}
-	</body>
-</html>
+
+{/block}
