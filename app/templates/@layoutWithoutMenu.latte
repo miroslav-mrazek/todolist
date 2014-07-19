@@ -9,24 +9,36 @@
 		<meta charset="utf-8">
 		<meta name="description" content="">
 		<meta name="robots" content="{$robots}" n:ifset="$robots">
+		
+		<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/bootstrap.spacelab.min.css">
+		<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/style.css">
 
-		<title>ÚKOLNÍČEK - {block title|striptags}{/block}</title>
+		<title>ÚKOLNÍČEK - {block title|striptags /}</title>
 
-		{block head}{/block}
+		{block head /}
 	</head>
-
+	
+	
 	<body>
 		<div class="container">
-			<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
-			{include #content}
+			<div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert">
+					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				</button>
+				{$flash->message}
+			</div>
+
+			{include content}
+			
 		</div>
 
 		{block scripts}
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script src="{$basePath}/js/netteForms.js"></script>
-		<script src="{$basePath}/js/nette.ajax.js"></script>
-		<script src="{$basePath}/js/fidRemove.ajax.js"></script>
-		<script src="{$basePath}/js/init.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+			<script src="{$basePath}/js/bootstrap.min.js"></script>
+			<script src="{$basePath}/js/netteForms.js"></script>
+			<script src="{$basePath}/js/nette.ajax.js"></script>
+			<script src="{$basePath}/js/fidRemove.ajax.js"></script>
+			<script src="{$basePath}/js/init.js"></script>
 		{/block}
 	</body>
 </html>

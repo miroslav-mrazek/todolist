@@ -1,6 +1,11 @@
-{form loginForm}
-	<p>{label username /}{input username}</p>
-	<p>{label password /}{input password}</p>
-	<p>{label remember, class => "checkbox"}{input remember}{/label}</p>
-	<p>{input ok}</p>
+{form loginForm, class => "bordered-silver"}
+	<div class="form-group">
+		{input username, class=>"form-control input-lg", placeholder=>"Email"}
+	</div>
+	<div class="form-group">
+		{input password, class=>"form-control input-lg", placeholder=>"Heslo"}
+	</div>
+	<div class="form-group">
+		{input ok, class=>"btn btn-primary btn-lg btn-block"}
+	</div>
 {/form}

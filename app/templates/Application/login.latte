@@ -1,8 +1,11 @@
 {layout ../@layoutWithoutMenu.latte}
 
+{block title}Přihlášení{/block}
+
 {block content}
 
-<h1 n:block="title">Přihlášení</h1>
-{control loginForm}
-
-{/block}
+<div class="container vertical-indent">
+	<div class="center-340">
+		{control loginForm}
+	</div>	
+</div>

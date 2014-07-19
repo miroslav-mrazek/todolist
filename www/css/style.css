@@ -1,0 +1,16 @@
+body {
+	background-image: url("../images/debut_light.png");
+}
+
+.vertical-indent {
+  margin-top:15%;
+}
+
+.center-340 {
+  width:340px;
+  margin:0 auto;
+}
+
+form.bordered-silver input {
+	border: 1px solid silver;
+}
