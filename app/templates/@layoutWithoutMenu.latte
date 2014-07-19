@@ -20,16 +20,29 @@
 	
 	
 	<body>
+		
+		
 		<div class="container">
-			<div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} alert-dismissible" role="alert">
-				<button type="button" class="close" data-dismiss="alert">
-					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-				</button>
-				{$flash->message}
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<div class="page-header center">
+						<h1>Úkolníček</h1>
+						<span class="motto">nástroj pro efektivní správu povinností</span>
+					</div>
+				</div>
 			</div>
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} alert-dismissible center-500 center" role="alert">
+						<button type="button" class="close" data-dismiss="alert">
+							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+						</button>
+						{$flash->message}
+					</div>
 
-			{include content}
-			
+					{include content}
+				</div>
+			</div>
 		</div>
 
 		{block scripts}

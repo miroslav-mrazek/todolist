@@ -6,11 +6,36 @@ body {
   margin-top:15%;
 }
 
+.center {
+  text-align: center;
+}
+
 .center-340 {
   width:340px;
   margin:0 auto;
 }
 
+.center-500 {
+  width:500px;
+  margin:0 auto;
+}
+
 form.bordered-silver input {
 	border: 1px solid silver;
+}
+
+
+.page-header {
+  border: 0;
+  font-size: 150%;
+}
+
+.page-header h1 {
+  text-transform: uppercase;
+  color: #446e9b;
+}
+
+.page-header .motto {
+  text-decoration: overline;
+  color: grey;
 }

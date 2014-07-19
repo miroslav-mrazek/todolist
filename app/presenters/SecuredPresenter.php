@@ -27,7 +27,7 @@ abstract class SecuredPresenter extends BasePresenter
 		parent::startup();
 
 		if (!$this->user->isLoggedIn()) {
-			$this->flashMessage("Bez přihlášení nelze vstoupit do aplikace.");
+			$this->flashMessage("Začněte tím, že se přihlásíte.");
 			$this->redirect('Application:login');
 		}
 		

@@ -9,7 +9,6 @@ class LogoutControl extends BaseControl
 	public function handleLogout()
 	{
 		$this->presenter->getUser()->logout();
-		$this->presenter->flashMessage('Byl jste odhlášen.');
 		$this->presenter->redirect('Application:login');
 	}
 
