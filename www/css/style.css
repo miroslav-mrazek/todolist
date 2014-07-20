@@ -24,7 +24,6 @@ form.bordered-silver input {
 	border: 1px solid silver;
 }
 
-
 .page-header {
   border: 0;
   font-size: 150%;
@@ -38,4 +37,13 @@ form.bordered-silver input {
 .page-header .motto {
   text-decoration: overline;
   color: grey;
+}
+
+.well {
+	background-color: #fcfcfc;
+}
+
+.done {
+	color: silver;
+	text-decoration: line-through;
 }

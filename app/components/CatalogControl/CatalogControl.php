@@ -14,27 +14,19 @@ class CatalogControl extends BaseControl
 	/** @var CatalogRepository */
 	protected $catalogs;
 
-	/** @var ITaskFormFactory */
-	protected $taskFormFactory;
-
-
 	
 	public function __construct(TaskService $taskService,
-								CatalogRepository $catalogs,
-								ITaskFormFactory $taskFormFactory)
+								CatalogRepository $catalogs)
 	{
 		parent::__construct();
 		$this->taskService = $taskService;
 		$this->catalogs = $catalogs;
-		$this->taskFormFactory = $taskFormFactory;
 	}
 
 
 	public function render($id)
 	{
-		$catalog = $this->catalogs->get($id);
-		$this->template->catalog = $catalog;
-		$this->template->tasks = $catalog->tasks;
+		$this->template->catalog = $this->catalogs->get($id);
 		
 		$this->template->setFile(__DIR__ . '/catalogControl.latte');
 		$this->template->render();
@@ -61,22 +53,7 @@ class CatalogControl extends BaseControl
 
 		$this->taskService->setDone($taskId, $done);
 		
-		if ($this->presenter->isAjax()) {
-			$this->invalidateControl('tasks');
-		}
-		else {
-			$this->presenter->redirect('this');
-		}
-	}
-
-
-	/**
-	 * @return TaskForm
-	 */
-	public function createComponentNewTaskForm()
-	{
-		$newTaskForm = $this->taskFormFactory->create();
-		return $newTaskForm;
+		$this->presenter->redirect('this');
 	}
 
 }

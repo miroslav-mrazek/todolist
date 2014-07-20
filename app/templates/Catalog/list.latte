@@ -5,25 +5,24 @@
 
 {block content}
 
-<div class="row">
-	<div id="catalogs" class="span5">
-		<h2 n:block="title">Seznamy úkolů</h2>
-		<ul class="nav nav-list" n:snippet="list">
+<div class="row clearfix">
+	<div class="col-md-3 column">
+		<div class="well">
+			{control newCatalogForm}
+		<ul class="nav nav-pills nav-stacked">
 			<li n:foreach="$catalogs as $catalog"  n:class="$catalog->id == $catalogId ? active">
 				<a n:href="Catalog:list $catalog->id">{$catalog->title}</a>
 			</li>
 		</ul>
+		</div>
 	</div>
-
-	<div id="catalogForm" class="span5">
-		<h2>Nový seznam</h2>
-		{control newCatalogForm}
+	<div class="col-md-9 column">
+		<div n:if="isset($catalogId)" class="well">
+			{control newTaskForm}
+			{control catalogControl, $catalogId}
+		</div>
 	</div>
 </div>
 
-{if !is_null($catalogId)}
-	<hr>
-	{control catalogControl, $catalogId}
-{/if}
 
 {/block}
