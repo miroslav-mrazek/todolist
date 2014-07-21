@@ -9,6 +9,8 @@ use Nette\Application\IRouter,
 
 class RouterFactory
 {
+	
+	const DEFAULT_ROUTE = 'Catalog:list';
 
 	/**
 	 * @return IRouter
@@ -16,8 +18,8 @@ class RouterFactory
 	public function createRouter()
 	{
 		$router = new RouteList();
-		$router[] = new Route('index.php', 'Catalog:list', Route::ONE_WAY);
-		$router[] = new Route('<presenter>/<action>[/<id>]', 'Catalog:list');
+		$router[] = new Route('index.php', self::DEFAULT_ROUTE, Route::ONE_WAY);
+		$router[] = new Route('<presenter>/<action>[/<id>]', self::DEFAULT_ROUTE);
 		return $router;
 	}
 

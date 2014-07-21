@@ -55,6 +55,6 @@ class ApplicationPresenter extends BasePresenter
 			return;
 		}
 
-		$this->redirect('Catalog:list');
+		$this->redirect(RouterFactory::DEFAULT_ROUTE);
 	}
 }
