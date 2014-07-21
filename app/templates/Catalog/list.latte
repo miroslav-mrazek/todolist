@@ -8,12 +8,16 @@
 <div class="row clearfix">
 	<div class="col-md-3 column">
 		<div class="well">
-			{control newCatalogForm}
-		<ul class="nav nav-pills nav-stacked">
-			<li n:foreach="$catalogs as $catalog"  n:class="$catalog->id == $catalogId ? active">
-				<a n:href="Catalog:list $catalog->id">{$catalog->title}</a>
-			</li>
-		</ul>
+			{form catalogForm}
+				<div class="form-group">
+					{input title, class=>"form-control", placeholder=>"Nový projekt"}
+				</div>
+			{/form}
+			<ul class="nav nav-pills nav-stacked">
+				<li n:foreach="$catalogs as $catalog"  n:class="$catalog->id == $catalogId ? active">
+					<a n:href="Catalog:list $catalog->id">{$catalog->title}</a>
+				</li>
+			</ul>
 		</div>
 	</div>
 	<div class="col-md-9 column">

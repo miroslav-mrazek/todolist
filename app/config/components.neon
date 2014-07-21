@@ -1,6 +1,6 @@
 services:
 	- Todolist\LoginFormFactory
 	- Todolist\ILogoutControlFactory
-	- Todolist\ICatalogFormFactory
+	- Todolist\CatalogFormFactory
 	- Todolist\ICatalogControlFactory
 	- Todolist\ITaskFormFactory

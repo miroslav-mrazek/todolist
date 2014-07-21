@@ -11,12 +11,8 @@ final class CatalogPresenter extends SecuredPresenter
 	 * @inject
 	 */
 	public $catalogControlFactory;
-	
-	/**
-	 * @var ICatalogFormFactory
-	 * @inject
-	 */
-	public $catalogFormFactory;
+
+	use TCatalogFormFactory;
 	
 	/** @var ITaskFormFactory
 	 * @inject
@@ -57,7 +53,7 @@ final class CatalogPresenter extends SecuredPresenter
 	/**
 	 * @return CatalogForm
 	 */
-	public function createComponentNewCatalogForm()
+	public function createComponentCatalogForm()
 	{
 		return $this->catalogFormFactory->create();
 	}
