@@ -10,12 +10,12 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" n:href="Catalog:list">Úkolníček</a>
+					<a class="navbar-brand" n:href="Catalog:list, NULL">Úkolníček</a>
 				</div>
 
 				<div class="navbar-collapse collapse navbar-inverse-collapse">
 					<ul class="nav navbar-nav">
-						<li n:class="$presenter->isLinkCurrent('Catalog:list') ? active"><a n:href="Catalog:list">Seznamy</a></li>
+						<li n:class="$presenter->isLinkCurrent('Catalog:list') ? active"><a n:href="Catalog:list, NULL">Seznamy</a></li>
 					</ul>
 
 					<ul class="nav navbar-nav navbar-right">
