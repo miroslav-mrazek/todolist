@@ -19,11 +19,4 @@ class LogoutControl extends BaseControl
 		$this->template->render();
 	}
 
-
-	public function renderButton()
-	{
-		$this->template->setFile(__DIR__ . '/logoutControlButton.latte');
-		$this->template->render();
-	}
-
 }
