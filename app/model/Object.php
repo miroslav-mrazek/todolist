@@ -2,10 +2,10 @@
 
 namespace Todolist;
 
-use Nette\Object;
+use Nette\Object as NObject;
 
 
-class BaseFormFactory extends Object
+class Object extends NObject
 {
 	
 	public function __construct()

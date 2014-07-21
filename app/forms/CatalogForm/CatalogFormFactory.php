@@ -5,7 +5,7 @@ namespace Todolist;
 use Nette\Application\UI\Form;
 
 
-class CatalogFormFactory extends BaseFormFactory
+class CatalogFormFactory extends Object
 {
 
 	/** @var CatalogRepository */
@@ -22,9 +22,11 @@ class CatalogFormFactory extends BaseFormFactory
 	/**
 	 * @return Form
 	 */
-	public function create()
+	public function create($userId)
 	{
 		$form = new Form;
+		$form->addHidden('user')
+			->setDefaultValue($userId);
 		$form->addText('title', 'Název:')
 			->addRule(Form::FILLED, "Zadejte název seznamu.")
 			->addRule(Form::MIN_LENGTH, "Název musí mít alespoň %s znaků.", 3);
@@ -42,9 +44,7 @@ class CatalogFormFactory extends BaseFormFactory
 		$values = $form->getValues();
 
 		$catalog = new Catalog($values);
-		$catalog->user = $this->presenter->user->id;
-
-		$this->catalogs->persist($catalog);
+		$this->catalogRepository->persist($catalog);
 	}
 
 }
