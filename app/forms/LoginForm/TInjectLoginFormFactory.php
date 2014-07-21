@@ -3,7 +3,7 @@
 namespace Todolist;
 
 
-trait TLoginFormFactory
+trait TInjectLoginFormFactory
 {
 
 	/**

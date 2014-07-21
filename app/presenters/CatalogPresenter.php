@@ -12,9 +12,9 @@ final class CatalogPresenter extends SecuredPresenter
 	 */
 	public $catalogControlFactory;
 
-	use TCatalogFormFactory;
+	use TInjectCatalogFormFactory;
 	
-	use TTaskFormFactory;
+	use TInjectTaskFormFactory;
 	
 	/**
 	 * @var int

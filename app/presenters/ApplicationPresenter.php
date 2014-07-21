@@ -11,7 +11,7 @@ use Exception;
 class ApplicationPresenter extends BasePresenter
 {
 
-	use TLoginFormFactory;
+	use TInjectLoginFormFactory;
 
 
 	public function renderLogin()

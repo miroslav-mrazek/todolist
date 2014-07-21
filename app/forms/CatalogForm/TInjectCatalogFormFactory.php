@@ -3,7 +3,7 @@
 namespace Todolist;
 
 
-trait TCatalogFormFactory
+trait TInjectCatalogFormFactory
 {
 
 	/**
