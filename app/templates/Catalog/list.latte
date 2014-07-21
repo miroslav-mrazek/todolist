@@ -22,7 +22,12 @@
 	</div>
 	<div class="col-md-9 column">
 		<div n:if="isset($catalogId)" class="well">
-			{control newTaskForm}
+			{form taskForm}
+				<div class="form-group">
+					{input text, class=>"form-control", placeholder=>"Nový úkol"}
+				</div>
+			{/form}
+
 			{control catalogControl, $catalogId}
 		</div>
 	</div>

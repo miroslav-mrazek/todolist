@@ -3,4 +3,4 @@ services:
 	- Todolist\ILogoutControlFactory
 	- Todolist\CatalogFormFactory
 	- Todolist\ICatalogControlFactory
-	- Todolist\ITaskFormFactory
+	- Todolist\TaskFormFactory

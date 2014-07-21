@@ -14,30 +14,22 @@ final class CatalogPresenter extends SecuredPresenter
 
 	use TCatalogFormFactory;
 	
-	/** @var ITaskFormFactory
-	 * @inject
+	use TTaskFormFactory;
+	
+	/**
+	 * @var int
+	 * @persistent
 	 */
-	public $taskFormFactory;
+	public $id;
 
 
 	/**
-	 * Pohled na seznam a jeho úkoly
-	 * 
-	 * @param string
+	 * @param int
 	 */
 	public function actionList($id = NULL)
 	{
-		if(!$this->user->isAllowed('catalog', 'read'))
-		{
-			$this->flashMessage("nemate prava");
-			$this->template->catalogs = [];
-			$this->template->catalogId = NULL;
-		}
-		else
-		{
-			$this->template->catalogs = $this->userEntity->catalogs;
-			$this->template->catalogId = $id;
-		}
+		$this->template->catalogs = $this->userEntity->catalogs;
+		$this->template->catalogId = $id;
 	}
 
 
@@ -55,15 +47,23 @@ final class CatalogPresenter extends SecuredPresenter
 	 */
 	public function createComponentCatalogForm()
 	{
-		return $this->catalogFormFactory->create();
+		$form = $this->catalogFormFactory->create($this->user->id);
+		$form->onSuccess[] = function() {
+			$this->redirect('this');
+		};
+		return $form;
 	}
 	
 	/**
 	 * @return TaskForm
 	 */
-	public function createComponentNewTaskForm()
+	public function createComponentTaskForm()
 	{
-		return $this->taskFormFactory->create();
+		$form = $this->taskFormFactory->create($this->id);
+		$form->onSuccess[] = function() {
+			$this->redirect('this');
+		};
+		return $form;
 	}
 
 }
