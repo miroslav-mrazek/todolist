@@ -1,5 +1,5 @@
 services:
-	- Todolist\ILoginFormFactory
+	- Todolist\LoginFormFactory
 	- Todolist\ILogoutControlFactory
 	- Todolist\ICatalogFormFactory
 	- Todolist\ICatalogControlFactory

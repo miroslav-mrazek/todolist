@@ -2,7 +2,7 @@
 
 namespace Todolist;
 
-use Nette\Application\UI\Form;
+use Exception;
 
 
 /**
@@ -11,11 +11,7 @@ use Nette\Application\UI\Form;
 class ApplicationPresenter extends BasePresenter
 {
 
-	/**
-	 * @var ILoginFormFactory
-	 * @inject
-	 */
-	public $loginFormFactory;
+	use TLoginFormFactory;
 
 
 	public function renderLogin()
@@ -28,7 +24,30 @@ class ApplicationPresenter extends BasePresenter
 	 */
 	protected function createComponentLoginForm()
 	{
-		return $this->loginFormFactory->create();
+		$form = $this->loginFormFactory->create();
+		$form->onSuccess[] = $this->loginFormSuccess;
+		return $form;
 	}
 
+
+	/**
+	 * @param Form $form
+	 */
+	public function loginFormSuccess($form)
+	{
+		$values = $form->getValues();
+
+		$this->getUser()->setExpiration('+ 14 days', FALSE); # nebudeme automaticky odhlašovat
+		try
+		{
+			$this->getUser()->login($values->username, $values->password);
+		}
+		catch (Exception $e)
+		{
+			$this->flashMessage("Zadali jste neznámý email, nebo špatné heslo.", "danger");
+			return;
+		}
+
+		$this->redirect('Catalog:list');
+	}
 }
