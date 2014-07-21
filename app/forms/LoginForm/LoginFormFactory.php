@@ -5,7 +5,7 @@ namespace Todolist;
 use Nette\Application\UI\Form;
 	
 
-class LoginFormFactory
+class LoginFormFactory extends BaseFormFactory
 {
 
 	/**
