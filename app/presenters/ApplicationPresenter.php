@@ -17,6 +17,13 @@ class ApplicationPresenter extends BasePresenter
 	public function renderLogin()
 	{
 	}
+	
+	
+	public function actionLogout()
+	{
+		$this->getUser()->logout();
+		$this->redirect('Application:login');
+	}
 
 
 	/**

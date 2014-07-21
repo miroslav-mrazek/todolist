@@ -20,9 +20,9 @@
 
 					<ul class="nav navbar-nav navbar-right">
 						{if $user->isLoggedIn()}
-							<li>{control logoutControl}</li>
+							<li><a n:href="Application:logout">Odhlášení</a></li>
 						{else}
-							<li class="active"><a n:href="Application:login">Přihlášení</a></li>
+							<li><a n:href="Application:login">Přihlášení</a></li>
 						{/if}
 					</ul>
 				</div>

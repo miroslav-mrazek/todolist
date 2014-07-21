@@ -15,12 +15,6 @@ abstract class SecuredPresenter extends BasePresenter
 	/** @var UserRepository */
 	private $users;
 
-	/**
-	 * @var ILogoutControlFactory
-	 * @inject
-	 */
-	public $logoutControlFactory;
-
 
 	public function startup()
 	{
@@ -33,16 +27,7 @@ abstract class SecuredPresenter extends BasePresenter
 		
 		$this->userEntity = $this->users->get($this->user->id);
 	}
-	
-	
-	/**
-	 * @return LogoutControl
-	 */
-	public function createComponentLogoutControl()
-	{
-		return $this->logoutControlFactory->create();
-	}
-	
+
 	
 	/**
 	 * @param UserRepository $users
