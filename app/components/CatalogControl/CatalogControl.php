@@ -13,22 +13,27 @@ class CatalogControl extends BaseControl
 
 	/** @var CatalogRepository */
 	protected $catalogs;
+	
+	/** @var int */
+	protected $id;
 
 	
-	public function __construct(TaskService $taskService,
+	public function __construct($id,
+								TaskService $taskService,
 								CatalogRepository $catalogs)
 	{
 		parent::__construct();
+		$this->id = $id;
 		$this->taskService = $taskService;
 		$this->catalogs = $catalogs;
 	}
 
 
-	public function render($id)
+	public function render()
 	{
-		$this->template->catalog = $this->catalogs->get($id);
+		$this->template->catalog = $this->catalogs->get($this->id);
 		
-		$this->template->setFile(__DIR__ . '/catalogControl.latte');
+		$this->prepareTemplate();
 		$this->template->render();
 	}
 

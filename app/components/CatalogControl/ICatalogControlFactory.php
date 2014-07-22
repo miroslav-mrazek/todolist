@@ -9,6 +9,6 @@ interface ICatalogControlFactory
 	/**
 	 * @return CatalogControl
 	 */
-	function create();
+	function create($id);
 
 }

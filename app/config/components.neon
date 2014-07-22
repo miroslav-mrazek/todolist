@@ -3,4 +3,6 @@ services:
 	- Todolist\CatalogFormFactory
 	- Todolist\TaskFormFactory
 
-	- Todolist\ICatalogControlFactory
+	- implement: Todolist\ICatalogControlFactory
+	  parameters: [id]
+	  arguments: [%id%]
