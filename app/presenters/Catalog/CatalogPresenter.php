@@ -38,7 +38,7 @@ final class CatalogPresenter extends SecuredPresenter
 	 */
 	public function createComponentCatalogControl()
 	{
-		return $this->catalogControlFactory->create();
+		return $this->catalogControlFactory->create($this->id);
 	}
 
 
