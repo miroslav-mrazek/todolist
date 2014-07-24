@@ -28,8 +28,7 @@ class CatalogFormFactory extends Object
 		$form->addHidden('user')
 			->setDefaultValue($userId);
 		$form->addText('title', 'Název:')
-			->addRule(Form::FILLED, "Zadejte název seznamu.")
-			->addRule(Form::MIN_LENGTH, "Název musí mít alespoň %s znaků.", 3);
+			->addRule(Form::FILLED, "Zadejte název seznamu.");
 		$form->addSubmit('ok', 'Vytvořit');
 		$form->onSuccess[] = $this->success;
 		return $form;
@@ -45,6 +44,8 @@ class CatalogFormFactory extends Object
 
 		$catalog = new Catalog($values);
 		$this->catalogRepository->persist($catalog);
+		
+		$form->setValues(['user' => $values->user], TRUE);
 	}
 
 }

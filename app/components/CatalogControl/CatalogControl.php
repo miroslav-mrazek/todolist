@@ -8,16 +8,16 @@ use Nette\InvalidArgumentException;
 class CatalogControl extends BaseControl
 {
 
+	/** @var int */
+	protected $id;
+	
 	/** @var TaskService */
 	protected $taskService;
 
 	/** @var CatalogRepository */
 	protected $catalogs;
 	
-	/** @var int */
-	protected $id;
 
-	
 	public function __construct($id,
 								TaskService $taskService,
 								CatalogRepository $catalogs)
@@ -58,7 +58,12 @@ class CatalogControl extends BaseControl
 
 		$this->taskService->setDone($taskId, $done);
 		
-		$this->presenter->redirect('this');
+		if($this->isAjax()) {
+			$this->redrawControl('taskList');
+		}
+		else {
+			$this->redirect('this');
+		}
 	}
 
 }

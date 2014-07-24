@@ -7,22 +7,22 @@
 
 <div class="row clearfix">
 	<div class="col-md-3 column">
-		<div class="well">
-			{form catalogForm}
+		<div class="well" n:snippet="projectList">
+			{form catalogForm, class=>'ajax'}
 				<div class="form-group">
 					{input title, class=>"form-control", placeholder=>"Nový projekt"}
 				</div>
 			{/form}
 			<ul class="nav nav-pills nav-stacked">
 				<li n:foreach="$catalogs as $catalog"  n:class="$catalog->id == $catalogId ? active">
-					<a n:href="Catalog:list $catalog->id">{$catalog->title}</a>
+					<a n:href="Catalog:list $catalog->id" class="ajax">{$catalog->title}</a>
 				</li>
 			</ul>
 		</div>
 	</div>
 	<div class="col-md-9 column">
-		<div n:if="isset($catalogId)" class="well">
-			{form taskForm}
+		<div n:if="isset($catalogId)" class="well" n:snippet="taskList">
+			{form taskForm, class=>'ajax'}
 				<div class="form-group">
 					{input text, class=>"form-control", placeholder=>"Nový úkol"}
 				</div>

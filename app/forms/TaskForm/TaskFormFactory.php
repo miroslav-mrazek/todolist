@@ -29,8 +29,7 @@ class TaskFormFactory extends Object
 		$form->addHidden('catalog')
 			->setDefaultValue($catalogId);
 		$form->addText('text', 'Popis:')
-			->addRule(Form::FILLED, "Zadejte popis úkolu.")
-			->addRule(Form::MIN_LENGTH, "Popis musí mít alespoň %s znaků.", 5);
+			->addRule(Form::FILLED, "Zadejte popis úkolu.");
 		$form->addSubmit('ok', 'Vytvořit');
 		$form->onSuccess[] = $this->success;
 		return $form;
@@ -46,8 +45,9 @@ class TaskFormFactory extends Object
 
 		$task = new Task($values);
 		$task->created = new DateTime;
-
 		$this->taskRepository->persist($task);
+		
+		$form->setValues(['catalog' => $values->catalog], TRUE);
 	}
 
 }

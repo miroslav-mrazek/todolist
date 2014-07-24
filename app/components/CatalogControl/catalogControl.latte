@@ -2,13 +2,13 @@
  * @param Catalog $catalog
  *}
 
-<ul>
+<ul n:snippet="taskList">
 	<li n:foreach="$catalog->tasks as $task">
 		<span n:class="$task->done ? 'done'">{$task->text}</span> | 
 		{if $task->done}
-			<a n:href="setDone!, $task->id, 'no'">Nesplněno!</a>
+			<a n:href="setDone!, $task->id, 'no'" class="ajax">Nesplněno!</a>
 		{else}
-			<a n:href="setDone!, $task->id, 'yes'">Splněno!</a>
+			<a n:href="setDone!, $task->id, 'yes'" class="ajax">Splněno!</a>
 		{/if}
 	</li>
 </ul>

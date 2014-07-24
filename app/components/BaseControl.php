@@ -24,4 +24,10 @@ class BaseControl extends Control
 		$this->template->render();
 	}
 	
+	
+	public function isAjax()
+	{
+		return $this->getPresenter()->isAjax();
+	}
+	
 }
