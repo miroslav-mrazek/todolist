@@ -2,6 +2,17 @@ body {
 	background-image: url("../images/debut_light.png");
 }
 
+#ajax-spinner {
+	position: absolute;
+	left:50%;
+	top: 35%;
+	width: 32px;
+	height: 32px;
+	background-image: url('../images/spinner.gif');
+	z-index: 999;
+	display: none;
+}
+
 .vertical-indent {
   margin-top:15%;
 }
