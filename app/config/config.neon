@@ -1,3 +1,6 @@
+extensions:
+	ajaxHistory: VojtechDobes\NetteAjax\HistoryExtension
+
 parameters:
 	database:
 		profiler: on

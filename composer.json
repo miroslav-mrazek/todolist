@@ -12,7 +12,8 @@
 	"require": {
 		"php": ">= 5.5",
 		"nette/nette": "~2.2.0",
-		"tharos/leanmapper": "~2.2.0"
+		"tharos/leanmapper": "~2.2.0",
+		"vojtech-dobes/nette-ajax-history": "~1.0"
 	},
 	"require-dev": {
 		"nette/tester": "~1.0"

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ee14b666464eb456eb62f95107a4925f",
+    "hash": "6d7d7ccdb08af0912e0b4c6949b4d8ed",
     "packages": [
         {
             "name": "dg/dibi",
@@ -1229,6 +1229,49 @@
                 "nette"
             ],
             "time": "2014-06-24 01:18:03"
+        },
+        {
+            "name": "vojtech-dobes/nette-ajax-history",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vojtech-dobes/history.nette.ajax.js.git",
+                "reference": "864f2daad490c3f204cbfeee041f208c6a435724"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vojtech-dobes/history.nette.ajax.js/zipball/864f2daad490c3f204cbfeee041f208c6a435724",
+                "reference": "864f2daad490c3f204cbfeee041f208c6a435724",
+                "shasum": ""
+            },
+            "require": {
+                "nette/nette": "~2.0",
+                "php": ">=5.3.1"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vojtěch Dobeš",
+                    "email": "me@vojtechdobes.com"
+                }
+            ],
+            "description": "Adds History API support for Nette Framework.",
+            "homepage": "https://github.com/vojtech-dobes/history.nette.ajax.js",
+            "keywords": [
+                "ajax",
+                "nette",
+                "nette.ajax.js"
+            ],
+            "time": "2014-03-04 13:01:59"
         }
     ],
     "packages-dev": [
