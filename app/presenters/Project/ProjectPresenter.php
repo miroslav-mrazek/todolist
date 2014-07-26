@@ -23,7 +23,9 @@ final class ProjectPresenter extends SecuredPresenter
 	 */
 	public function actionList($id = NULL)
 	{
-		$this->project = $this->projectRepository->get($id);
+		if($id) {
+			$this->project = $this->projectRepository->get($id);
+		}
 	}
 	
 	public function renderList()
@@ -40,7 +42,9 @@ final class ProjectPresenter extends SecuredPresenter
 	 */
 	public function handleSetDone($taskId)
 	{
-		$this->taskRepository->setDone($taskId);
+		$task = $this->taskRepository->get($taskId);
+		$task->setDone();
+		$this->taskRepository->persist($task);
 		$this->redirect('this');
 	}
 	
@@ -51,7 +55,9 @@ final class ProjectPresenter extends SecuredPresenter
 	 */
 	public function handleSetUndone($taskId)
 	{
-		$this->taskRepository->setUndone($taskId);
+		$task = $this->taskRepository->get($taskId);
+		$task->setUndone();
+		$this->taskRepository->persist($task);
 		$this->redirect('this');
 	}
 	

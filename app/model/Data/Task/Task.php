@@ -16,4 +16,15 @@ use DateTime;
 class Task extends Entity
 {
 	
+	public function setDone()
+	{
+		$this->row->done = TRUE;
+	}
+	
+	
+	public function setUndone()
+	{
+		$this->row->done = FALSE;
+	}
+	
 }
