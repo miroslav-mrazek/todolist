@@ -2,7 +2,7 @@
  * @param Catalog $catalog
  *}
 
-<ul n:snippet="taskList">
+<ul>
 	<li n:foreach="$catalog->tasks as $task">
 		<span n:class="$task->done ? 'done'">{$task->text}</span> | 
 		{if $task->done}

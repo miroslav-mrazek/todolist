@@ -53,9 +53,9 @@ class ApplicationPresenter extends BasePresenter
 		catch (Exception $e)
 		{
 			$this->flashMessage("Zadali jste neznámý email, nebo špatné heslo.", "danger");
+			$form->setValues([], TRUE);
 			return;
 		}
-
 		$this->redirect(RouterFactory::DEFAULT_ROUTE);
 	}
 }

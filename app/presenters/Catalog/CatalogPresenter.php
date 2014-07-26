@@ -34,10 +34,6 @@ final class CatalogPresenter extends SecuredPresenter
 	{
 		$this->template->catalogs = $this->userEntity->catalogs;
 		$this->template->catalogId = $this->id;
-		
-		if($this->isAjax()) {
-			$this->redrawControl('content');
-		}
 	}
 
 
@@ -57,12 +53,7 @@ final class CatalogPresenter extends SecuredPresenter
 	{
 		$form = $this->catalogFormFactory->create($this->user->id);
 		$form->onSuccess[] = function() {
-			if($this->isAjax())	{
-				$this->redrawControl('projectList');
-			}
-			else {
-				$this->redirect('this');
-			}
+			$this->redirect('this');
 		};
 		return $form;
 	}
@@ -74,12 +65,7 @@ final class CatalogPresenter extends SecuredPresenter
 	{
 		$form = $this->taskFormFactory->create($this->id);
 		$form->onSuccess[] = function() {
-			if($this->isAjax())	{
-				$this->presenter->redrawControl('taskList');
-			}
-			else {
-				$this->redirect('this');
-			}
+			$this->redirect('this');
 		};
 		return $form;
 	}

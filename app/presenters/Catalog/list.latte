@@ -7,7 +7,7 @@
 
 <div class="row clearfix">
 	<div class="col-md-3 column">
-		<div class="well" n:snippet="projectList">
+		<div class="well">
 			{form catalogForm, class=>'ajax'}
 				<div class="form-group">
 					{input title, class=>"form-control", placeholder=>"Nový projekt"}
@@ -21,7 +21,7 @@
 		</div>
 	</div>
 	<div class="col-md-9 column">
-		<div n:if="isset($catalogId)" class="well" n:snippet="taskList">
+		<div n:if="isset($catalogId)" class="well">
 			{form taskForm, class=>'ajax'}
 				<div class="form-group">
 					{input text, class=>"form-control", placeholder=>"Nový úkol"}
@@ -32,6 +32,5 @@
 		</div>
 	</div>
 </div>
-
 
 {/block}

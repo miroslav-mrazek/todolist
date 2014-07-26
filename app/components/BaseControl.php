@@ -8,7 +8,7 @@ use Nette\Application\UI\Control;
 class BaseControl extends Control
 {
 	
-	protected function prepareTemplate()
+	protected function loadTemplate()
 	{
 		$dir = dirname($this->reflection->getFileName());
 		$name = lcfirst( $this->reflection->getShortName() );
@@ -20,14 +20,8 @@ class BaseControl extends Control
 	
 	public function render()
 	{
-		$this->prepareTemplate();
+		$this->loadTemplate();
 		$this->template->render();
-	}
-	
-	
-	public function isAjax()
-	{
-		return $this->getPresenter()->isAjax();
 	}
 	
 }

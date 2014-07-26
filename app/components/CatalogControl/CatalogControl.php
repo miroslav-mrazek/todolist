@@ -33,7 +33,7 @@ class CatalogControl extends BaseControl
 	{
 		$this->template->catalog = $this->catalogs->get($this->id);
 		
-		$this->prepareTemplate();
+		$this->loadTemplate();
 		$this->template->render();
 	}
 
@@ -57,13 +57,7 @@ class CatalogControl extends BaseControl
 		}
 
 		$this->taskService->setDone($taskId, $done);
-		
-		if($this->isAjax()) {
-			$this->redrawControl('taskList');
-		}
-		else {
-			$this->redirect('this');
-		}
+		$this->redirect('this');
 	}
 
 }

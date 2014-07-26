@@ -12,6 +12,10 @@ abstract class BasePresenter extends Presenter
 	{
 		parent::beforeRender();
 		$this->template->defaultRoute = RouterFactory::DEFAULT_ROUTE;
+		if($this->isAjax()) {
+			$this->redrawControl('title');
+			$this->redrawControl('container');
+		}
 	}
 	
 	

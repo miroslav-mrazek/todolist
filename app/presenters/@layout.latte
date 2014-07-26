@@ -1,6 +1,7 @@
 {layout @baseLayout.latte}
 
-{block outerContent}
+{block container}
+
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<div class="navbar navbar-inverse">
@@ -30,20 +31,15 @@
 		</div>
 	</div>
 	<div class="row clearfix">
-		<div class="col-md-12 column" n:snippet="content">
-			<div n:snippet="flashes">
-				<div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} alert-dismissible" role="alert">
-					<button type="button" class="close" data-dismiss="alert">
-						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-					</button>
-					{$flash->message}
-				</div>
-			</div>
-				
+		<div class="col-md-12 column">
+			<div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert">
+					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				</button>
+				{$flash->message}
+			</div>	
 			{include content}
 		</div>
 	</div>
-				
-
 
 {/block}

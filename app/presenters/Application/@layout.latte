@@ -1,6 +1,7 @@
 {layout ../@baseLayout.latte}
 
-{block outerContent}
+{block container}
+
 <div class="row clearfix">
 	<div class="col-md-12 column">
 		<div class="page-header center">
@@ -17,8 +18,8 @@
 			</button>
 			{$flash->message}
 		</div>
-
 		{include content}
 	</div>
 </div>
+		
 {/block}
