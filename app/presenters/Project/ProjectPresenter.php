@@ -13,23 +13,23 @@ final class ProjectPresenter extends SecuredPresenter
 	use TInjectTaskFormFactory;
 	
 	/**
-	 * @var int
-	 * @persistent
+	 * @var Project
 	 */
-	public $id;
+	protected $project;
 
 
 	/**
-	 * @param int|NULL
+	 * @param Project|NULL
 	 */
 	public function actionList($id = NULL)
 	{
+		$this->project = $this->projectRepository->get($id);
 	}
 	
 	public function renderList()
 	{
 		$this->template->projects = $this->userEntity->projects;
-		$this->template->project = $this->projectRepository->get($this->id);
+		$this->template->project = $this->project;
 	}
 	
 	
@@ -73,7 +73,7 @@ final class ProjectPresenter extends SecuredPresenter
 	 */
 	public function createComponentTaskForm()
 	{
-		$form = $this->taskFormFactory->create($this->id);
+		$form = $this->taskFormFactory->create($this->project->id);
 		$form->onSuccess[] = function() {
 			$this->redirect('this');
 		};
