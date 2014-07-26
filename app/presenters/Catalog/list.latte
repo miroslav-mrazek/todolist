@@ -2,10 +2,10 @@
  * @param Catalog[] $catalogs
  * @param int       $catalogId
  *}
+ 
+<span n:block="title">Projekty</span>
 
-{block content}
-
-<div class="row clearfix">
+<div n:block="content" class="row clearfix">
 	<div class="col-md-3 column">
 		<div class="well">
 			{form catalogForm, class=>'ajax'}
@@ -32,5 +32,3 @@
 		</div>
 	</div>
 </div>
-
-{/block}
