@@ -4,7 +4,7 @@ namespace Todolist;
 
 
 /**
- * Entita reprezentující seznam úkolů
+ * Entita reprezentující projekt
  * 
  * @property User   $user  m:hasOne
  * @property Task[] $tasks m:belongsToMany
@@ -12,7 +12,7 @@ namespace Todolist;
  * @property int    $id
  * @property string $title
  */
-class Catalog extends Entity
+class Project extends Entity
 {
 	
 }

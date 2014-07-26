@@ -23,11 +23,11 @@ class TaskFormFactory extends Object
 	/**
 	 * @return Form
 	 */
-	public function create($catalogId)
+	public function create($projectId)
 	{
 		$form = new Form;
-		$form->addHidden('catalog')
-			->setDefaultValue($catalogId);
+		$form->addHidden('project')
+			->setDefaultValue($projectId);
 		$form->addText('text', 'Popis:')
 			->addRule(Form::FILLED, "Zadejte popis úkolu.");
 		$form->addSubmit('ok', 'Vytvořit');
@@ -47,7 +47,7 @@ class TaskFormFactory extends Object
 		$task->created = new DateTime;
 		$this->taskRepository->persist($task);
 		
-		$form->setValues(['catalog' => $values->catalog], TRUE);
+		$form->setValues(['project' => $values->project], TRUE);
 	}
 
 }

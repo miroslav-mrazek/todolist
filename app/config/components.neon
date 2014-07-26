@@ -1,8 +1,4 @@
 services:
 	- Todolist\LoginFormFactory
-	- Todolist\CatalogFormFactory
+	- Todolist\ProjectFormFactory
 	- Todolist\TaskFormFactory
-
-	- implement: Todolist\ICatalogControlFactory
-	  parameters: [id]
-	  arguments: [%id%]

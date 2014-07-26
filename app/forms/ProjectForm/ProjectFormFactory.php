@@ -5,17 +5,17 @@ namespace Todolist;
 use Nette\Application\UI\Form;
 
 
-class CatalogFormFactory extends Object
+class ProjectFormFactory extends Object
 {
 
-	/** @var CatalogRepository */
-	protected $catalogRepository;
+	/** @var ProjectRepository */
+	protected $projectRepository;
 
 
-	public function __construct(CatalogRepository $catalogRepository)
+	public function __construct(ProjectRepository $projectRepository)
 	{
 		parent::__construct();
-		$this->catalogRepository = $catalogRepository;
+		$this->projectRepository = $projectRepository;
 	}
 
 	
@@ -28,7 +28,7 @@ class CatalogFormFactory extends Object
 		$form->addHidden('user')
 			->setDefaultValue($userId);
 		$form->addText('title', 'Název:')
-			->addRule(Form::FILLED, "Zadejte název seznamu.");
+			->addRule(Form::FILLED, "Zadejte název projektu.");
 		$form->addSubmit('ok', 'Vytvořit');
 		$form->onSuccess[] = $this->success;
 		return $form;
@@ -42,8 +42,8 @@ class CatalogFormFactory extends Object
 	{
 		$values = $form->getValues();
 
-		$catalog = new Catalog($values);
-		$this->catalogRepository->persist($catalog);
+		$project = new Project($values);
+		$this->projectRepository->persist($project);
 		
 		$form->setValues(['user' => $values->user], TRUE);
 	}

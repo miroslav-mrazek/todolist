@@ -1,0 +1,42 @@
+{*
+ * @param Project[] $projects
+ * @param Project   $project
+ *}
+ 
+<span n:block="title">Projekty</span>
+
+<div n:block="content" class="row clearfix">
+	<div class="col-md-3 column">
+		<div class="well">
+			{form projectForm, class=>'ajax'}
+				<div class="form-group">
+					{input title, class=>"form-control", placeholder=>"Nový projekt"}
+				</div>
+			{/form}
+			<ul class="nav nav-pills nav-stacked">
+				<li n:foreach="$projects as $projectIterator"  n:class="$projectIterator->id == $project->id ? active">
+					<a n:href="Project:list $projectIterator->id" class="ajax">{$projectIterator->title}</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="col-md-9 column">
+		<div n:ifset="$project" class="well">
+			{form taskForm, class=>'ajax'}
+				<div class="form-group">
+					{input text, class=>"form-control", placeholder=>"Nový úkol"}
+				</div>
+			{/form}
+			<ul>
+				<li n:foreach="$project->tasks as $task">
+					<span n:class="$task->done ? 'done'">{$task->text}</span> | 
+					{if $task->done}
+						<a n:href="setUndone!, $task->id" class="ajax" data-ajax-off="history">Nesplněno!</a>
+					{else}
+						<a n:href="setDone!, $task->id" class="ajax" data-ajax-off="history">Splněno!</a>
+					{/if}
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

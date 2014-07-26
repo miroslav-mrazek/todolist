@@ -6,7 +6,7 @@ use DateTime;
 
 
 /**
- * @property Catalog  $catalog m:hasOne
+ * @property Project  $project m:hasOne
  * 
  * @property int      $id
  * @property string   $text
