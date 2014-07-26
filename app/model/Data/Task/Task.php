@@ -6,8 +6,6 @@ use DateTime;
 
 
 /**
- * Entita reprezentující úkol
- * 
  * @property Catalog  $catalog m:hasOne
  * 
  * @property int      $id

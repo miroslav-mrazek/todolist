@@ -6,5 +6,4 @@ services:
 	- Todolist\Authorizator
 	- Todolist\UserRepository
 	- Todolist\TaskRepository
-	- Todolist\TaskService
 	- Todolist\CatalogRepository

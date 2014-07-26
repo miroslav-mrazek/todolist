@@ -6,14 +6,8 @@ namespace Todolist;
 final class CatalogPresenter extends SecuredPresenter
 {
 	
-	/**
-	 * @var ICatalogControlFactory
-	 * @inject
-	 */
-	public $catalogControlFactory;
-
+	use TInjectCatalogControlFactory;
 	use TInjectCatalogFormFactory;
-	
 	use TInjectTaskFormFactory;
 	
 	/**

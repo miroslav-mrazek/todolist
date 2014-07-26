@@ -2,36 +2,32 @@
 
 namespace Todolist;
 
-use Nette\InvalidArgumentException;
-
 
 class CatalogControl extends BaseControl
 {
 
-	/** @var int */
-	protected $id;
-	
 	/** @var TaskService */
-	protected $taskService;
+	protected $taskRepository;
 
-	/** @var CatalogRepository */
-	protected $catalogs;
+	/** @var Catalog */
+	protected $catalog;
 	
 
 	public function __construct($id,
-								TaskService $taskService,
-								CatalogRepository $catalogs)
+						CatalogRepository $catalogRepository,
+						TaskRepository $taskRepository
+					)
 	{
 		parent::__construct();
-		$this->id = $id;
-		$this->taskService = $taskService;
-		$this->catalogs = $catalogs;
+		
+		$this->catalog = $catalogRepository->get($id);
+		$this->taskRepository = $taskRepository;
 	}
 
 
 	public function render()
 	{
-		$this->template->catalog = $this->catalogs->get($this->id);
+		$this->template->catalog = $this->catalog;
 		
 		$this->loadTemplate();
 		$this->template->render();
@@ -39,24 +35,24 @@ class CatalogControl extends BaseControl
 
 
 	/**
-	 * Signál, který nastaví úkol jako (ne)splněný
+	 * Signál, který nastaví úkol jako splněný
 	 * 
-	 * @param int    $taskId
-	 * @param string $done 'yes'|'no'
+	 * @param int $taskId
 	 */
-	public function handleSetDone($taskId, $done)
+	public function handleSetDone($taskId)
 	{
-		if ($done === "yes") {
-			$done = TRUE;
-		}
-		elseif ($done === "no") {
-			$done = FALSE;
-		}
-		else {
-			throw new InvalidArgumentException("Parametr 'done' může nabývat jen hodnot 'yes', nebo 'no'.");
-		}
-
-		$this->taskService->setDone($taskId, $done);
+		$this->taskRepository->setDone($taskId);
+		$this->redirect('this');
+	}
+	
+	/**
+	 * Signál, který nastaví úkol jako nesplněný
+	 * 
+	 * @param int $taskId
+	 */
+	public function handleSetUndone($taskId)
+	{
+		$this->taskRepository->setUndone($taskId);
 		$this->redirect('this');
 	}
 
