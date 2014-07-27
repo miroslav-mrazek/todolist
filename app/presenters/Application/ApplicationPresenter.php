@@ -48,7 +48,7 @@ class ApplicationPresenter extends BasePresenter
 		$this->getUser()->setExpiration('+ 14 days', FALSE); # nebudeme automaticky odhlašovat
 		try
 		{
-			$this->getUser()->login($values->username, $values->password);
+			$this->getUser()->login($values->email, $values->password);
 		}
 		catch (Exception $e)
 		{

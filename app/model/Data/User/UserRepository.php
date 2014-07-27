@@ -4,7 +4,7 @@ namespace Todolist;
 
 
 /**
- * @method User getByUsername($username) Vrátí uživatele podle 'username'.
+ * @method User getByEmail($email) Vrátí uživatele podle sloupce email.
  */
 class UserRepository extends Repository
 {

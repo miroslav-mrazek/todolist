@@ -15,8 +15,9 @@ class LoginFormFactory extends Object
 	{
 		$form = new Form;
 		
-		$form->addText('username', 'Jméno:')
-			->setRequired('Vyplňte, prosím, přihlašovací jméno.');
+		$form->addText('email', 'Email:')
+			->setRequired('Zadejte, prosím, přihlašovací email.')
+			->addRule(Form::EMAIL, 'Email nemá správný formát.');
 		$form->addPassword('password', 'Heslo:')
 			->setRequired('Zadejte, prosím, heslo.');
 		$form->addSubmit('ok', 'Přihlásit se');

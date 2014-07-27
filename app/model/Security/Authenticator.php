@@ -5,7 +5,8 @@ namespace Todolist;
 use Nette\Security\IAuthenticator,
 	Nette\Security\Identity,
 	Nette\Security\AuthenticationException,
-	Nette\Utils\Strings;
+	Nette\Utils\Strings,
+	Nette\Security\Passwords;
 
 
 /**
@@ -33,19 +34,20 @@ class Authenticator implements IAuthenticator
 	 */
 	public function authenticate(array $credentials)
 	{
-		list($username, $password) = $credentials;
-		$user = $this->users->getByUsername($username);
+		list($email, $password) = $credentials;
+		$user = $this->users->getByEmail($email);
 
-		if (is_null($user)) {
-			throw new AuthenticationException('The username is incorrect.', self::IDENTITY_NOT_FOUND);
+		if (is_null($user))
+		{
+			throw new AuthenticationException('Neznámý uživatel.', self::IDENTITY_NOT_FOUND);
 		}
-
-//		if ($user->password !== $this->calculateHash($password, $user->password))
-//		{
-//			throw new AuthenticationException('The password is incorrect.', self::INVALID_CREDENTIAL);
-//		}
-
-		return new Identity($user->id, $user->role, array('name' => $user->name));
+		elseif (!Passwords::verify($password, $user->password))
+		{
+			throw new AuthenticationException('Špatné heslo.', self::INVALID_CREDENTIAL);
+		}
+		//barDump(Passwords::hash($password)); # Jen pro potřeby ručni změny hesla
+		
+		return new Identity($user->id, 'user', array('name' => $user->name));
 	}
 
 
