@@ -28,13 +28,9 @@
 				</div>
 			{/form}
 			<ul>
-				<li n:foreach="$project->tasks as $task">
-					<span n:class="$task->done ? 'done'">{$task->title}</span> | 
-					{if $task->done}
-						<a n:href="setUndone!, $task->id" class="ajax" data-ajax-off="history">Nesplněno!</a>
-					{else}
-						<a n:href="setDone!, $task->id" class="ajax" data-ajax-off="history">Splněno!</a>
-					{/if}
+				<li n:foreach="$project->tasks as $task" n:if="!$task->done">
+					{$task->title} | 
+					<a n:href="setDone!, $task->id" class="ajax" data-ajax-off="history">Splněno!</a>
 				</li>
 			</ul>
 		</div>
