@@ -54,7 +54,11 @@ form.bordered-silver input {
 	background-color: #fcfcfc;
 }
 
-.done {
-	color: silver;
-	text-decoration: line-through;
+.well-inverse {
+	background-color: #446e9b;
+	border: 1px solid #3a5e84;
+}
+
+table tr.headrow th{
+	background-color: #e3e9f0 !important;
 }

@@ -48,16 +48,15 @@ final class ProjectPresenter extends SecuredPresenter
 		$this->redirect('this');
 	}
 	
+	
 	/**
-	 * Signál, který nastaví úkol jako nesplněný
+	 * Signál, který smaže úkol
 	 * 
 	 * @param int $taskId
 	 */
-	public function handleSetUndone($taskId)
+	public function handleDelete($taskId)
 	{
-		$task = $this->taskRepository->get($taskId);
-		$task->undone();
-		$this->taskRepository->persist($task);
+		$this->taskRepository->delete($taskId);
 		$this->redirect('this');
 	}
 	
