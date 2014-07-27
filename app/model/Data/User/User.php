@@ -9,10 +9,9 @@ namespace Todolist;
  * @property Project[] $projects m:belongsToMany
  * 
  * @property int       $id
- * @property string    $username
+ * @property string    $email
  * @property string    $password
  * @property string    $name
- * @property string    $role
  */
 class User extends Entity
 {
