@@ -9,22 +9,24 @@ use DateTime;
  * @property Project  $project m:hasOne
  * 
  * @property int      $id
- * @property string   $text
+ * @property string   $title
+ * @property string   $note
+ * @property int      $priority
  * @property boolean  $done
  * @property DateTime $created
  */
 class Task extends Entity
 {
 	
-	public function setDone()
+	public function done()
 	{
-		$this->row->done = TRUE;
+		$this->done = TRUE;
 	}
 	
 	
-	public function setUndone()
+	public function undone()
 	{
-		$this->row->done = FALSE;
+		$this->done = FALSE;
 	}
 	
 }

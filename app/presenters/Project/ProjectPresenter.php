@@ -43,7 +43,7 @@ final class ProjectPresenter extends SecuredPresenter
 	public function handleSetDone($taskId)
 	{
 		$task = $this->taskRepository->get($taskId);
-		$task->setDone();
+		$task->done();
 		$this->taskRepository->persist($task);
 		$this->redirect('this');
 	}
@@ -56,7 +56,7 @@ final class ProjectPresenter extends SecuredPresenter
 	public function handleSetUndone($taskId)
 	{
 		$task = $this->taskRepository->get($taskId);
-		$task->setUndone();
+		$task->undone();
 		$this->taskRepository->persist($task);
 		$this->redirect('this');
 	}

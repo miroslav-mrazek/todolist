@@ -8,7 +8,7 @@
 <div n:block="content" class="row clearfix">
 	<div class="col-md-3 column">
 		<div class="well">
-			{form projectForm, class=>'ajax'}
+			{form projectForm, class=>'ajax', data-ajax-off=>'history'}
 				<div class="form-group">
 					{input title, class=>"form-control", placeholder=>"Nový projekt"}
 				</div>
@@ -22,14 +22,14 @@
 	</div>
 	<div class="col-md-9 column">
 		<div n:if="$project" class="well">
-			{form taskForm, class=>'ajax'}
+			{form taskForm, class=>'ajax', data-ajax-off=>'history'}
 				<div class="form-group">
-					{input text, class=>"form-control", placeholder=>"Nový úkol"}
+					{input title, class=>"form-control", placeholder=>"Nový úkol"}
 				</div>
 			{/form}
 			<ul>
 				<li n:foreach="$project->tasks as $task">
-					<span n:class="$task->done ? 'done'">{$task->text}</span> | 
+					<span n:class="$task->done ? 'done'">{$task->title}</span> | 
 					{if $task->done}
 						<a n:href="setUndone!, $task->id" class="ajax" data-ajax-off="history">Nesplněno!</a>
 					{else}

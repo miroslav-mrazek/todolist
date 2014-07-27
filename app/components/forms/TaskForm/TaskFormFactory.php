@@ -28,8 +28,8 @@ class TaskFormFactory extends Object
 		$form = new Form;
 		$form->addHidden('project')
 			->setDefaultValue($projectId);
-		$form->addText('text', 'Popis:')
-			->addRule(Form::FILLED, "Zadejte popis úkolu.");
+		$form->addText('title', 'Název:')
+			->addRule(Form::FILLED, "Zadejte název úkolu.");
 		$form->addSubmit('ok', 'Vytvořit');
 		$form->onSuccess[] = $this->success;
 		return $form;
