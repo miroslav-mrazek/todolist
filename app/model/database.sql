@@ -8,7 +8,7 @@ CREATE TABLE `project` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(100) COLLATE utf8_czech_ci NOT NULL,
   `note` text COLLATE utf8_czech_ci NOT NULL,
-  `finishable` tinyint(3) unsigned NOT NULL DEFAULT '1',
+  `finishable` tinyint(1) unsigned NOT NULL DEFAULT '1',
   `user_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
@@ -25,7 +25,7 @@ CREATE TABLE `task` (
   `project_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `project_id` (`project_id`),
-  CONSTRAINT `task_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `project` (`id`) ON DELETE CASCADE
+  CONSTRAINT `task_ibfk_2` FOREIGN KEY (`project_id`) REFERENCES `project` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 
