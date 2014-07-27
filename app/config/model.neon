@@ -3,7 +3,6 @@ services:
 	- LeanMapper\DefaultEntityFactory
 	- Todolist\Mapper
 	- Todolist\Authenticator
-	- Todolist\Authorizator
 	- Todolist\UserRepository
 	- Todolist\TaskRepository
 	- Todolist\ProjectRepository
