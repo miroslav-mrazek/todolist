@@ -9,11 +9,10 @@ namespace Todolist;
 abstract class SecuredPresenter extends BasePresenter
 {
 	
+	use TInjectUserRepository;
+	
 	/** @var User */
 	protected $userEntity;
-
-	/** @var UserRepository */
-	private $users;
 
 
 	public function startup()
@@ -25,16 +24,7 @@ abstract class SecuredPresenter extends BasePresenter
 			$this->redirect('Application:login');
 		}
 		
-		$this->userEntity = $this->users->get($this->user->id);
-	}
-
-	
-	/**
-	 * @param UserRepository $users
-	 */
-	public function injectUserRepository(UserRepository $users)
-	{
-		$this->users = $users;
+		$this->userEntity = $this->userRepository->get($this->user->id);
 	}
 
 }

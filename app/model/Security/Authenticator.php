@@ -5,7 +5,6 @@ namespace Todolist;
 use Nette\Security\IAuthenticator,
 	Nette\Security\Identity,
 	Nette\Security\AuthenticationException,
-	Nette\Utils\Strings,
 	Nette\Security\Passwords;
 
 
@@ -16,12 +15,12 @@ class Authenticator implements IAuthenticator
 {
 
 	/** @var UserRepository */
-	private $users;
+	private $userRepository;
 
 
-	public function __construct(UserRepository $users)
+	public function __construct(UserRepository $userRepository)
 	{
-		$this->users = $users;
+		$this->userRepository = $userRepository;
 	}
 
 
@@ -35,7 +34,7 @@ class Authenticator implements IAuthenticator
 	public function authenticate(array $credentials)
 	{
 		list($email, $password) = $credentials;
-		$user = $this->users->getByEmail($email);
+		$user = $this->userRepository->getByEmail($email);
 
 		if (is_null($user))
 		{
@@ -45,25 +44,9 @@ class Authenticator implements IAuthenticator
 		{
 			throw new AuthenticationException('Špatné heslo.', self::INVALID_CREDENTIAL);
 		}
-		//barDump(Passwords::hash($password)); # Jen pro potřeby ručni změny hesla
+		//barDump(Passwords::hash($password)); # Jen pro potřeby ruční změny hesla
 		
-		return new Identity($user->id, 'user', array('name' => $user->name));
-	}
-
-
-	/**
-	 * Vytvoří hash hesla.
-	 * 
-	 * @param string heslo
-	 * @param string salt
-	 * @return string
-	 */
-	public static function calculateHash($password, $salt = NULL)
-	{
-		if ($password === Strings::upper($password)) { // perhaps caps lock is on
-			$password = Strings::lower($password);
-		}
-		return crypt($password, $salt ? : '$2a$07$' . Strings::random(22));
+		return new Identity($user->id, ['user'], ['name' => $user->name]);
 	}
 
 }
