@@ -6,3 +6,4 @@ services:
 	- Todolist\UserRepository
 	- Todolist\TaskRepository
 	- Todolist\ProjectRepository
+	- Todolist\ThingRepository

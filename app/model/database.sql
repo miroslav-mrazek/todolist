@@ -3,10 +3,11 @@ SET foreign_key_checks = 0;
 SET time_zone = 'SYSTEM';
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
+
 DROP TABLE IF EXISTS `project`;
 CREATE TABLE `project` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) COLLATE utf8_czech_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8_czech_ci NOT NULL,
   `note` text COLLATE utf8_czech_ci NOT NULL,
   `finishable` tinyint(1) unsigned NOT NULL DEFAULT '1',
   `user_id` int(10) unsigned NOT NULL,
@@ -19,7 +20,7 @@ CREATE TABLE `project` (
 DROP TABLE IF EXISTS `task`;
 CREATE TABLE `task` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) COLLATE utf8_czech_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8_czech_ci NOT NULL,
   `note` text COLLATE utf8_czech_ci NOT NULL,
   `priority` tinyint(3) unsigned NOT NULL,
   `done` tinyint(1) unsigned NOT NULL DEFAULT '0',
@@ -28,6 +29,18 @@ CREATE TABLE `task` (
   PRIMARY KEY (`id`),
   KEY `project_id` (`project_id`),
   CONSTRAINT `task_ibfk_2` FOREIGN KEY (`project_id`) REFERENCES `project` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+
+
+DROP TABLE IF EXISTS `thing`;
+CREATE TABLE `thing` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8_czech_ci NOT NULL,
+  `note` text COLLATE utf8_czech_ci NOT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `thing_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 

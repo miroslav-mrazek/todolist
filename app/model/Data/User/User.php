@@ -6,6 +6,7 @@ namespace Todolist;
 /**
  * Entita reprezentující uživatele
  * 
+ * @property Thing[]   $things m:belongsToMany
  * @property Project[] $projects m:belongsToMany
  * 
  * @property int       $id

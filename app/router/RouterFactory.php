@@ -10,7 +10,7 @@ use Nette\Application\IRouter,
 class RouterFactory
 {
 	
-	const DEFAULT_ROUTE = 'Project:list';
+	const DEFAULT_ROUTE = 'Inbox:list';
 
 	
 	/**

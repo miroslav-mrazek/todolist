@@ -1,0 +1,35 @@
+{*
+ * @param Things[] $things
+ *}
+ 
+<span n:block="title">Vstupní schránka</span>
+
+<div n:block="content" class="row clearfix">
+	<div class="col-md-12 column">
+		<div class="well">
+			{form thingForm, class=>'ajax', data-ajax-off=>'history'}
+				<div class="form-group">
+					{input title, class=>"form-control", placeholder=>"Přidat věc"}
+				</div>
+			{/form}
+			<hr />
+			<table n:if="count($things)" class="table table-striped">
+				<tr class="headrow">
+					<th>Věc</th>
+					<th>Akce</th>
+				</tr>
+				<tr n:foreach="$things as $thing">
+					<td>{$thing->title}</td>
+					<td>
+						<a n:href="delete!, $thing->id" class="no-ajax" data-ajax-off="history"
+								onclick="return confirm('Opravdu smazat?');">
+							<button type="button" class="btn btn-danger btn-xs">
+								<span class="glyphicon glyphicon-remove"></span> Smazat
+							</button>
+						</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
