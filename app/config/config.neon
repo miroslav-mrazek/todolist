@@ -5,9 +5,6 @@ php:
 	date.timezone: Europe/Prague
 
 nette:
-	container:
-		debugger: on
-
 	application:
 		errorPresenter: Error
 		mapping:
