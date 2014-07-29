@@ -1,0 +1,3 @@
+services:
+	- Todolist\RouterFactory
+	router: @Todolist\RouterFactory::createRouter

@@ -1,0 +1,20 @@
+services:
+	# připojení k db
+	- LeanMapper\Connection(%database%)
+	- LeanMapper\DefaultEntityFactory
+	- Todolist\Mapper
+
+	# zabezpečení
+	- Todolist\Authenticator
+	- Todolist\LoginFormFactory
+
+	# repozitáře a servisy
+	- Todolist\UserRepository
+	- Todolist\TaskRepository
+	- Todolist\ProjectRepository
+	- Todolist\ThingRepository
+
+	# formuláře
+	- Todolist\ProjectFormFactory
+	- Todolist\TaskFormFactory
+	- Todolist\ThingFormFactory

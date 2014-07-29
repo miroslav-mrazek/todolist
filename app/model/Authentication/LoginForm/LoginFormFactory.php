@@ -2,7 +2,8 @@
 
 namespace Todolist;
 
-use Nette\Application\UI\Form;
+use Nette\Object,
+	Nette\Application\UI\Form;
 	
 
 class LoginFormFactory extends Object

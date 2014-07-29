@@ -1,5 +1,0 @@
-services:
-	- Todolist\LoginFormFactory
-	- Todolist\ProjectFormFactory
-	- Todolist\TaskFormFactory
-	- Todolist\ThingFormFactory

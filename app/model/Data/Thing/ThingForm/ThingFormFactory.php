@@ -2,7 +2,8 @@
 
 namespace Todolist;
 
-use Nette\Application\UI\Form;
+use Nette\Object,
+	Nette\Application\UI\Form;
 
 
 class ThingFormFactory extends Object
@@ -14,7 +15,6 @@ class ThingFormFactory extends Object
 
 	public function __construct(ThingRepository $thingRepository)
 	{
-		parent::__construct();
 		$this->thingRepository = $thingRepository;
 	}
 

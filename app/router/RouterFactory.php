@@ -27,6 +27,7 @@ class RouterFactory
 		$router[] = new Route('login', 'Application:login');
 		$router[] = new Route('logout', 'Application:logout');
 		
+		# běžné routy
 		$router[] = new Route('<presenter>/<action>[/<id>]', self::DEFAULT_ROUTE);
 		
 		return $router;

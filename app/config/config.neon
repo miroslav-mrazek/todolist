@@ -1,10 +1,6 @@
 extensions:
 	ajaxHistory: VojtechDobes\NetteAjax\HistoryExtension
 
-parameters:
-	database:
-		profiler: on
-
 php:
 	date.timezone: Europe/Prague
 
@@ -20,10 +16,8 @@ nette:
 	session:
 		expiration: 14 days
 
-services:
-	- Todolist\RouterFactory
-	router: @Todolist\RouterFactory::createRouter
-
 includes:
-	- model.neon
-	- components.neon
+	- ../router/config.router.neon
+	- ../model/config.model.neon
+	- ../presenters/config.presenters.neon
+	- ../components/config.components.neon

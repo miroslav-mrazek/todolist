@@ -1,9 +1,0 @@
-services:
-	- LeanMapper\Connection(%database%)
-	- LeanMapper\DefaultEntityFactory
-	- Todolist\Mapper
-	- Todolist\Authenticator
-	- Todolist\UserRepository
-	- Todolist\TaskRepository
-	- Todolist\ProjectRepository
-	- Todolist\ThingRepository
