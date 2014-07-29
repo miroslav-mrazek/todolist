@@ -1,7 +1,7 @@
 New BSD License
 ---------------
 
-Copyright (c) 2014, Miroslav Mrázek
+Copyright (c) 2014, Miroslav Mrázek  
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -19,7 +19,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 New BSD Licence
 ---------------
 
-Copyright (c) 2014, Miroslav Mrázek
+Copyright (c) 2014, Miroslav Mrázek  
 Všechna práva vyhrazena.
 
 Redistribuce a použití zdrojových i binárních forem díla, v původním i upravovaném tvaru, jsou povoleny za následujících podmínek:
