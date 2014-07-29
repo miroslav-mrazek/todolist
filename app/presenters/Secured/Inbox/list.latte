@@ -14,21 +14,25 @@
 			{/form}
 			<hr />
 			<table n:if="count($things)" class="table table-striped">
-				<tr class="headrow">
-					<th>Věc</th>
-					<th>Akce</th>
-				</tr>
-				<tr n:foreach="$things as $thing">
-					<td>{$thing->title}</td>
-					<td>
-						<a n:href="delete!, $thing->id" class="no-ajax" data-ajax-off="history"
-								onclick="return confirm('Opravdu smazat?');">
-							<button type="button" class="btn btn-danger btn-xs">
-								<span class="glyphicon glyphicon-remove"></span> Smazat
-							</button>
-						</a>
-					</td>
-				</tr>
+				<thead>
+					<tr class="headrow">
+						<th>Věc</th>
+						<th>Akce</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr n:foreach="$things as $thing">
+						<td>{$thing->title}</td>
+						<td>
+							<a n:href="delete!, $thing->id" class="no-ajax" data-ajax-off="history"
+									onclick="return confirm('Opravdu smazat?');">
+								<button type="button" class="btn btn-danger btn-xs">
+									<span class="glyphicon glyphicon-remove"></span> Smazat
+								</button>
+							</a>
+						</td>
+					</tr>
+				<tbody>
 			</table>
 		</div>
 	</div>

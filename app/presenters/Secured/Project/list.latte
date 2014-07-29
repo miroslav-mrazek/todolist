@@ -30,26 +30,30 @@
 			{/form}
 			<hr />
 			<table n:if="count($project->tasks)" class="table table-striped">
-				<tr class="headrow">
-					<th>Úkol</th>
-					<th>Akce</th>
-				</tr>
-				<tr n:foreach="$project->tasks as $task" n:if="!$task->done">
-					<td>{$task->title}</td>
-					<td>
-						<a n:href="setDone!, $task->id" class="ajax" data-ajax-off="history">
-							<button type="button" class="btn btn-success btn-xs">
-								<span class="glyphicon glyphicon-ok"></span> Hotovo
-							</button>
-						</a>
-						<a n:href="delete!, $task->id" class="no-ajax" data-ajax-off="history"
-								onclick="return confirm('Opravdu smazat?');">
-							<button type="button" class="btn btn-danger btn-xs">
-								<span class="glyphicon glyphicon-remove"></span> Smazat
-							</button>
-						</a>
-					</td>
-				</tr>
+				<thead>
+					<tr class="headrow">
+						<th>Úkol</th>
+						<th>Akce</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr n:foreach="$project->tasks as $task" n:if="!$task->done">
+						<td>{$task->title}</td>
+						<td>
+							<a n:href="setDone!, $task->id" class="ajax" data-ajax-off="history">
+								<button type="button" class="btn btn-success btn-xs">
+									<span class="glyphicon glyphicon-ok"></span> Hotovo
+								</button>
+							</a>
+							<a n:href="delete!, $task->id" class="no-ajax" data-ajax-off="history"
+									onclick="return confirm('Opravdu smazat?');">
+								<button type="button" class="btn btn-danger btn-xs">
+									<span class="glyphicon glyphicon-remove"></span> Smazat
+								</button>
+							</a>
+						</td>
+					</tr>
+				</tbody>
 			</table>
 		</div>
 	</div>
