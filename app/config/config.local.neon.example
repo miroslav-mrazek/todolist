@@ -1,8 +1,8 @@
 # Tento soubor slouží jako šablona pro vytvoření souboru 'config.local.neon'
 
-parameters:
-	database:
-		host: "hostName"
-		username: "userName"
-		password: "password"
-		database: "databaseName"
+leanMapper:
+	host: "hostName"
+	username: "userName"
+	password: "password"
+	database: "databaseName"
+	profiler: on
