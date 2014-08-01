@@ -1,4 +1,5 @@
 extensions:
+	leanMapper: LeanMapperExtension
 	ajaxHistory: VojtechDobes\NetteAjax\HistoryExtension
 
 php:

@@ -14,7 +14,7 @@ use LeanMapper\DefaultMapper,
  * - entity repository is named [Entity]Repository
  * - M:N relations are stored in [table1]_[table2] tables
  *
- * @author Jan Nedbal, IIVOS
+ * @author Jan Nedbal, Miroslav Mrázek
  */
 class Mapper extends DefaultMapper
 {

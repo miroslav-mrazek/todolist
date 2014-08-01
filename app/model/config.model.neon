@@ -1,9 +1,8 @@
-services:
-	# připojení k db
-	- LeanMapper\Connection(%database%)
-	- LeanMapper\DefaultEntityFactory
-	- Todolist\Mapper
+leanMapper:
+	mapper: Todolist\Mapper
+	entityFactory: Todolist\EntityFactory
 
+services:
 	# zabezpečení
 	- Todolist\Authenticator
 	- Todolist\LoginFormFactory
