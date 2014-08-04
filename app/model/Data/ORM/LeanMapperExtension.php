@@ -15,7 +15,6 @@ class LeanMapperExtension extends CompilerExtension
 	{
 		$container = $this->getContainerBuilder();
 		$config = $this->getConfig();
-		barDump($config);
 
 		$useProfiler = isset($config['profiler'])
 			? $config['profiler']
