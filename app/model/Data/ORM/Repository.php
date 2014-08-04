@@ -24,16 +24,7 @@ abstract class Repository extends LeanRepository
 	 */
 	public function get($id)
 	{
-		$row = $this->connection->select('*')
-			->from($this->getTable())
-			->where('id = %i', $id)
-			->fetch();
-
-		if ($row === FALSE) {
-			throw new InvalidValueException('Nepodařilo se získat data z databáze.', 404);
-		}
-
-		return $this->createEntity($row);
+		return $this->getBy(['id' => $id]);
 	}
 
 

@@ -4,7 +4,7 @@ use Nette\DI\CompilerExtension;
 
 
 /**
- * LeanMapper extension for Nette Framework 2.2. Creates 'connection' & 'panel' services.
+ * LM extense pro Nette 2.2. Vytvoří 'connection', 'panel' a volitelně služby 'mapper' a 'entityFactory'.
  *
  * @author     David Grudl, Miroslav Mrázek
  */
