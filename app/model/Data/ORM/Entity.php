@@ -41,7 +41,8 @@ abstract class Entity extends LeanEntity
 	public function toArray()
 	{
 		$array = [];
-		foreach($this->getData() as $property => $value)
+		$data = $this->isDetached() ? $this->row->getData() : $this->getData();
+		foreach($data as $property => $value)
 		{
 			if($value instanceof LeanEntity) {
 				$array[$property] = $value->id;
