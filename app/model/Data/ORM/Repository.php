@@ -49,7 +49,7 @@ abstract class Repository extends LeanRepository
 			throw new InvalidValueException('Databáze vrátila více záznamů.');
 		}
 		else {
-			throw new InvalidValueException('Nepodařilo se získat data z databáze.', 404);
+			return NULL;
 		}
 	}
 
