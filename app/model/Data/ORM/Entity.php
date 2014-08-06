@@ -18,7 +18,6 @@ abstract class Entity extends LeanEntity
 	
 	/**
 	 * Umožňuje předat entitě místo navázaných entit jejich 'id'
-	 *
 	 * @param string $name
 	 * @param mixed  $value
 	 */
@@ -37,18 +36,32 @@ abstract class Entity extends LeanEntity
 		}
 	}
 
+	
+	/**
+	 * Převede entitu na jednoduchý identifikátor
+	 * @return int|string
+	 */
+	public function toIdentifier()
+	{
+		return $this->id;
+	}
 
+	
+	/**
+	 * Převede entitu na pole dat
+	 * @return array
+	 */
 	public function toArray()
 	{
 		$array = [];
 		$data = $this->isDetached() ? $this->row->getData() : $this->getData();
 		foreach($data as $property => $value)
 		{
-			if($value instanceof LeanEntity) {
-				$array[$property] = $value->id;
+			if($value instanceof Entity) {
+				$array[$property] = $value->toIdentifier();
 			}
 			elseif($value instanceof Collection) {
-				$array[$property] = $value->toArrayOfKeys();
+				$array[$property] = $value->toArrayOfIdentifiers();
 			}
 			elseif($value instanceof DateTime) {
 				$array[$property] = $value->format($this->dateTimeFormat);

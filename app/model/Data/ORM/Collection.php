@@ -8,23 +8,31 @@ use Nette\ArrayHash;
 class Collection extends ArrayHash
 {
 	
+	/**
+	 * Převede kolekci na pole entit
+	 * @return array
+	 */
 	public function toArray()
 	{
 		$array = [];
 		foreach($this as $entity)
 		{
-			$array[$entity->id] = $entity->toArray();
+			$array[] = $entity->toArray();
 		}
 		return $array;
 	}
 	
 	
-	public function toArrayOfKeys()
+	/**
+	 * Převede kolekci na pole identifikátorů
+	 * @return array
+	 */
+	public function toArrayOfIdentifiers()
 	{
 		$array = [];
 		foreach($this as $entity)
 		{
-			$array[] = $entity->id;
+			$array[] = $entity->toIdentifier();
 		}
 		return $array;
 	}
