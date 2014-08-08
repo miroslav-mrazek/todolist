@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6d7d7ccdb08af0912e0b4c6949b4d8ed",
+    "hash": "70f8d192c414d1e788de7dabfa481958",
     "packages": [
         {
             "name": "dg/dibi",
@@ -1138,6 +1138,51 @@
             "time": "2014-05-25 06:15:25"
         },
         {
+            "name": "saman/leanmodel",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/miroslav-mrazek/lean-model.git",
+                "reference": "e06cd472dbf21b4726f5ddf9d85ea7fc029c14fd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/miroslav-mrazek/lean-model/zipball/e06cd472dbf21b4726f5ddf9d85ea7fc029c14fd",
+                "reference": "e06cd472dbf21b4726f5ddf9d85ea7fc029c14fd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">= 5.4",
+                "tharos/leanmapper": "~2.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "LeanModel": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "NewBSD"
+            ],
+            "authors": [
+                {
+                    "name": "Miroslav Mrázek - Šaman",
+                    "email": "miroslav.mrazek@gmail.com",
+                    "homepage": "http://miroslav-mrazek.cz",
+                    "role": "Developer"
+                }
+            ],
+            "description": "LeanMapper enchanced base classes + Nette extension.",
+            "keywords": [
+                "leanmapper",
+                "model",
+                "nette",
+                "php"
+            ],
+            "time": "2014-08-08 13:50:46"
+        },
+        {
             "name": "tharos/leanmapper",
             "version": "v2.2.0",
             "source": {
@@ -1340,6 +1385,7 @@
     "stability-flags": [
 
     ],
+    "prefer-stable": false,
     "platform": {
         "php": ">= 5.5"
     },

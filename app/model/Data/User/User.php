@@ -2,6 +2,8 @@
 
 namespace Todolist;
 
+use LeanModel\Entity;
+
 
 /**
  * Entita reprezentující uživatele

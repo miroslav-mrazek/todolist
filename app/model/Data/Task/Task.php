@@ -2,7 +2,8 @@
 
 namespace Todolist;
 
-use DateTime;
+use LeanModel\Entity,
+	DateTime;
 
 
 /**

@@ -1,6 +1,10 @@
-leanMapper:
-	mapper: Todolist\Mapper
-	entityFactory: Todolist\EntityFactory
+extensions:
+	leanModel: LeanModel\LeanModelExtension
+
+leanModel:
+	defaultEntityNamespace: Todolist
+	mapper: LeanModel\Mapper
+	entityFactory: LeanModel\EntityFactory
 
 services:
 	# zabezpečení

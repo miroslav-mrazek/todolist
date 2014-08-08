@@ -2,7 +2,7 @@
 	"name": "miroslav-mrazek/todolist",
 	"description": "Správa úkolů.",
 	"type": "project",
-	"license": ["BSD-3-Clause"],
+	"license": ["NewBSD"],
 	"authors": [
 		{
 			"name": "Miroslav Mrázek - Šaman",
@@ -12,7 +12,7 @@
 	"require": {
 		"php": ">= 5.5",
 		"nette/nette": "~2.2.0",
-		"tharos/leanmapper": "~2.2.0",
+		"saman/leanmodel": "~1.0.0",
 		"vojtech-dobes/nette-ajax-history": "~1.0"
 	},
 	"require-dev": {
