@@ -1,6 +1,6 @@
 # Tento soubor slouží jako šablona pro vytvoření souboru 'config.local.neon'
 
-leanMapper:
+leanModel:
 	host: "hostName"
 	username: "userName"
 	password: "password"
