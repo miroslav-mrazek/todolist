@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "70f8d192c414d1e788de7dabfa481958",
+    "hash": "1daebd17b154c920ac956eae0a33a1ad",
     "packages": [
         {
             "name": "dg/dibi",
@@ -1139,16 +1139,16 @@
         },
         {
             "name": "saman/leanmodel",
-            "version": "1.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/miroslav-mrazek/lean-model.git",
-                "reference": "e06cd472dbf21b4726f5ddf9d85ea7fc029c14fd"
+                "reference": "1900674f7195be1ae10765ee1117eb3208c14809"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/miroslav-mrazek/lean-model/zipball/e06cd472dbf21b4726f5ddf9d85ea7fc029c14fd",
-                "reference": "e06cd472dbf21b4726f5ddf9d85ea7fc029c14fd",
+                "url": "https://api.github.com/repos/miroslav-mrazek/lean-model/zipball/1900674f7195be1ae10765ee1117eb3208c14809",
+                "reference": "1900674f7195be1ae10765ee1117eb3208c14809",
                 "shasum": ""
             },
             "require": {
@@ -1180,7 +1180,7 @@
                 "nette",
                 "php"
             ],
-            "time": "2014-08-08 13:50:46"
+            "time": "2014-08-12 06:45:10"
         },
         {
             "name": "tharos/leanmapper",
@@ -1382,9 +1382,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "saman/leanmodel": 20
+    },
     "prefer-stable": false,
     "platform": {
         "php": ">= 5.5"
