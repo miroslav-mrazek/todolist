@@ -5,6 +5,8 @@ leanModel:
 	defaultEntityNamespace: Todolist
 	mapper: LeanModel\Mapper
 	entityFactory: LeanModel\EntityFactory
+	filters:
+		- task: Todolist\TaskFilters
 
 services:
 	# zabezpečení
