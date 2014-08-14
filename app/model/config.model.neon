@@ -6,7 +6,7 @@ leanModel:
 	mapper: LeanModel\Mapper
 	entityFactory: LeanModel\EntityFactory
 	filters:
-		- task: Todolist\TaskFilters
+		- Todolist\TaskFilters
 
 services:
 	# zabezpečení

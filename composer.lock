@@ -1143,12 +1143,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/miroslav-mrazek/lean-model.git",
-                "reference": "0defb5b8ae07be4a67ae386420b9a5a9b4c05045"
+                "reference": "18560f116ecde142a292fce969775ebfa0357370"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/miroslav-mrazek/lean-model/zipball/0defb5b8ae07be4a67ae386420b9a5a9b4c05045",
-                "reference": "0defb5b8ae07be4a67ae386420b9a5a9b4c05045",
+                "url": "https://api.github.com/repos/miroslav-mrazek/lean-model/zipball/18560f116ecde142a292fce969775ebfa0357370",
+                "reference": "18560f116ecde142a292fce969775ebfa0357370",
                 "shasum": ""
             },
             "require": {
@@ -1180,7 +1180,7 @@
                 "nette",
                 "php"
             ],
-            "time": "2014-08-13 10:51:20"
+            "time": "2014-08-14 11:08:10"
         },
         {
             "name": "tharos/leanmapper",
