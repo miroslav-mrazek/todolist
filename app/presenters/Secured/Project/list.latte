@@ -18,7 +18,7 @@
 				<li n:foreach="$projects as $projectIterator"  n:class="$project &&$projectIterator->id == $project->id ? active">
 					<a n:href="Project:list $projectIterator->id" class="ajax">
 						{$projectIterator->title}
-						<span class="badge pull-right" n:if="$count = $projectIterator->tasks->count()">{$count}</span>
+						<span class="badge pull-right" n:if="$count = $projectIterator->tasksCount">{$count}</span>
 					</a>
 				</li>
 			</ul>
