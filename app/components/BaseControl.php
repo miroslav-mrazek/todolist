@@ -2,26 +2,43 @@
 
 namespace Todolist;
 
-use Nette\Application\UI\Control;
+use Nette\Application\UI\Control,
+	Nette\Application\UI\ITemplate;
 
 
 class BaseControl extends Control
 {
 	
-	protected function loadTemplate()
+	public function render()
 	{
-		$dir = dirname($this->reflection->getFileName());
-		$name = lcfirst( $this->reflection->getShortName() );
-		$file = "$dir/$name.latte";
-		$file2 = "$dir/templates/$name.latte";
-		$this->template->setFile( file_exists($file) ? $file : $file2 );
+		$this->template->render();
 	}
 	
 	
-	public function render()
+	/**
+	 * @return ITemplate
+	 */
+	protected function createTemplate()
 	{
-		$this->loadTemplate();
-		$this->template->render();
+		$template = parent::createTemplate();
+		
+		$dir = dirname($this->reflection->getFileName());
+		$name = lcfirst( $this->reflection->getShortName() );
+		
+		$files = [];
+		$files[] = "$dir/$name.latte";
+		$files[] = "$dir/templates/$name.latte";
+		
+		foreach ($files as $file)
+		{
+			if(file_exists($file))
+			{
+				$template->setFile($file);
+				break;
+			}
+		}
+		
+		return $template;
 	}
 	
 }
