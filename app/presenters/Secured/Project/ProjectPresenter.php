@@ -50,11 +50,23 @@ final class ProjectPresenter extends SecuredPresenter
 	
 	
 	/**
+	 * Signál, který smaže projekt
+	 * 
+	 * @param int $id
+	 */
+	public function handleDelete($id)
+	{
+		$this->projectRepository->delete($id);
+		$this->redirect('this', NULL);
+	}
+	
+	
+	/**
 	 * Signál, který smaže úkol
 	 * 
 	 * @param int $taskId
 	 */
-	public function handleDelete($taskId)
+	public function handleDeleteTask($taskId)
 	{
 		$this->taskRepository->delete($taskId);
 		$this->redirect('this');

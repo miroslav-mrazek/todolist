@@ -16,6 +16,7 @@
 			<hr />
 			<ul class="nav nav-pills nav-stacked">
 				<li n:foreach="$projects as $projectIterator"  n:class="$project &&$projectIterator->id == $project->id ? active">
+					
 					<a n:href="Project:list $projectIterator->id" class="ajax">
 						{$projectIterator->title}
 						<span class="badge pull-right" n:if="$count = $projectIterator->tasksCount">{$count}</span>
@@ -26,11 +27,18 @@
 	</div>
 	<div class="col-md-9 column">
 		<div n:if="$project" class="well">
+			<p n:if="!$project->tasks->count()">
+				<a n:href="delete!, $projectIterator->id" class="no-ajax btn btn-danger btn-block" data-ajax-off="history"
+							onclick="return confirm('Opravdu smazat?');">
+							<span class="glyphicon glyphicon-remove"></span> Smazat projekt
+				</a>
+			</p>
 			{form taskForm, class=>'ajax', data-ajax-off=>'history'}
 				<div class="form-group">
 					{input title, class=>"form-control", placeholder=>"Nový úkol"}
 				</div>
 			{/form}
+			
 			<hr />
 			<table n:if="count($project->tasks)" class="table table-striped">
 				<thead>
@@ -48,7 +56,7 @@
 									<span class="glyphicon glyphicon-ok"></span> Hotovo
 								</button>
 							</a>
-							<a n:href="delete!, $task->id" class="no-ajax" data-ajax-off="history"
+							<a n:href="deleteTask!, $task->id" class="no-ajax" data-ajax-off="history"
 									onclick="return confirm('Opravdu smazat?');">
 								<button type="button" class="btn btn-danger btn-xs">
 									<span class="glyphicon glyphicon-remove"></span> Smazat
