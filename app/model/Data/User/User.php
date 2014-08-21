@@ -2,8 +2,6 @@
 
 namespace Todolist;
 
-use LeanModel\Entity;
-
 
 /**
  * Entita reprezentující uživatele
@@ -16,7 +14,33 @@ use LeanModel\Entity;
  * @property string    $password
  * @property string    $name
  */
-class User extends Entity
+class User extends Entity implements IRole
 {
+	
+	/*
+	 * Implementace rozhraní IResource
+	 */
+	public function getOwnerId()
+	{
+		return $this->id;
+	}
+	
+	
+	/*
+	 * Implementace rozhraní IRole
+	 */
+	public function getId()
+	{
+		return $this->row->id;
+	}
+	
+	
+	/*
+	 * Implementace rozhraní IRole
+	 */
+	public function getRoleId()
+	{
+		return 'user'; //return $this->role;
+	}
 	
 }

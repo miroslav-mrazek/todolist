@@ -2,8 +2,7 @@
 
 namespace Todolist;
 
-use LeanModel\Entity,
-	DateTime;
+use DateTime;
 
 
 /**
@@ -18,6 +17,15 @@ use LeanModel\Entity,
  */
 class Task extends Entity
 {
+	
+	/*
+	 * Implementace rozhraní IResource
+	 */
+	public function getOwnerId()
+	{
+		return $this->project->user->id;
+	}
+	
 	
 	public function done()
 	{

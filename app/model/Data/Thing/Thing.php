@@ -2,8 +2,6 @@
 
 namespace Todolist;
 
-use LeanModel\Entity;
-
 
 /**
  * Entita reprezentující věc ve vstupní schránce
@@ -16,5 +14,13 @@ use LeanModel\Entity;
  */
 class Thing extends Entity
 {
+	
+	/*
+	 * Implementace rozhraní IResource
+	 */
+	public function getOwnerId()
+	{
+		return $this->user->id;
+	}
 	
 }

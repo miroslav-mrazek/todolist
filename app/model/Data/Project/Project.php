@@ -2,8 +2,7 @@
 
 namespace Todolist;
 
-use LeanModel\Entity,
-	LeanMapper\Filtering,
+use LeanMapper\Filtering,
 	LeanMapper\Fluent;
 
 
@@ -23,6 +22,15 @@ use LeanModel\Entity,
 class Project extends Entity
 {
 	
+	/*
+	 * Implementace rozhraní IResource
+	 */
+	public function getOwnerId()
+	{
+		return $this->user->id;
+	}
+	
+		
 	public function getTasksCount()
 	{
 		$rows = $this->row->referencing('task', 'project_id', new Filtering(function (Fluent $statement) {
