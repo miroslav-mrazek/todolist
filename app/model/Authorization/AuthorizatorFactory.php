@@ -27,11 +27,13 @@ class AuthorizatorFactory
 		/* seznam zdrojů */
 		$authorizator->addResource('entity');
 		$authorizator->addResource('User', 'entity');
+		$authorizator->addResource('Project', 'entity');
+		$authorizator->addResource('Task', 'entity');
+		$authorizator->addResource('Thing', 'entity');
 		
 		
 		/* seznam pravidel oprávnění */
 		$authorizator->allow('user', 'entity',	IAuthorizator::ALL, [$this, 'isOwner']);
-
 		$authorizator->allow('admin', 'entity', IAuthorizator::ALL);
 		
 		

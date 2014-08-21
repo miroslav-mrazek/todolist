@@ -10,8 +10,9 @@ leanModel:
 
 services:
 	# zabezpečení
-	- Todolist\Authenticator
-	- Todolist\LoginFormFactory
+	authenticator: Todolist\Authenticator
+	authorizatorFactory: Todolist\AuthorizatorFactory
+	authorizator: @authorizatorFactory::create
 
 	# repozitáře a servisy
 	- Todolist\UserRepository
@@ -20,6 +21,8 @@ services:
 	- Todolist\ThingRepository
 
 	# formuláře
+	- Todolist\LoginFormFactory
+
 	- Todolist\ProjectFormFactory
 	- Todolist\TaskFormFactory
 	- Todolist\ThingFormFactory
