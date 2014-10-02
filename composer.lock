@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1daebd17b154c920ac956eae0a33a1ad",
+    "hash": "e60227a84a591e2f67b1177bb74f9219",
     "packages": [
         {
             "name": "dg/dibi",
@@ -123,6 +123,23 @@
                 "twig"
             ],
             "time": "2014-08-24 18:26:48"
+        },
+        {
+            "name": "mesour/datagrid",
+            "version": "v1.2",
+            "source": {
+                "type": "git",
+                "url": "http://git.mesour.com/mesour/datagrid.git",
+                "reference": "df510801e5406d25a4f6e35f5929fbb397e5c7ae"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "DataGrid/"
+                ]
+            },
+            "description": "Mesour DataGrid",
+            "time": "2014-10-01 15:20:11"
         },
         {
             "name": "nette/application",

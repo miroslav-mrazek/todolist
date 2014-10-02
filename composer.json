@@ -9,11 +9,15 @@
 			"homepage": "http://miroslav-mrazek.cz"
 		}
 	],
+	"repositories": [
+        {"type": "vcs","url": "http://git.mesour.com/mesour/datagrid.git"}
+    ],
 	"require": {
 		"php": ">= 5.5",
 		"nette/nette": "~2.2.0",
 		"saman/leanmodel": "dev-master",
-		"vojtech-dobes/nette-ajax-history": "~1.0"
+		"vojtech-dobes/nette-ajax-history": "~1.0",
+		"mesour/datagrid": "~1.2"
 	},
 	"require-dev": {
 		"nette/tester": "~1.0"
