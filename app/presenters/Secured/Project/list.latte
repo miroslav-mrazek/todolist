@@ -28,7 +28,7 @@
 	<div class="col-md-9 column">
 		<div n:if="$project" class="well">
 			<p n:if="!$project->tasks->count()">
-				<a n:href="delete!, $projectIterator->id" class="no-ajax btn btn-danger btn-block" data-ajax-off="history"
+				<a n:href="delete!, $project->id" class="no-ajax btn btn-danger btn-block" data-ajax-off="history"
 							onclick="return confirm('Opravdu smazat?');">
 							<span class="glyphicon glyphicon-remove"></span> Smazat projekt
 				</a>
